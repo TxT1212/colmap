@@ -1,0 +1,444 @@
+{
+  "colmap_app_path": "colmap",
+  "video_frame_path": "/media/mm/RichMan/hzgb/images_back",
+  "model_proj_path": "/media/mm/RichMan/hzgb/",
+  "model_proj_image_path": "/media/mm/RichMan/hzgb/images",
+  "colmap_voc_file": "/home/mm/ARWorkspace/colmap/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "OPENCV_FISHEYE",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ copy.loc_image 
+ copy base images to colmap_proj_path 
+==================================
+==================================
+ copy.locdb 
+ copy database to loc.db 
+==================================
+==================================
+ custom.rmcharuco 
+ remove charuco images 
+==================================
+==================================
+ colmap.image_reg 
+ registration loc images 
+==================================
+==================================
+ copy.loc_image 
+ copy base images to colmap_proj_path 
+==================================
+copy from  /media/mm/RichMan/hzgb/images_back/loc  to  /media/mm/RichMan/hzgb/images/loc
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000000.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000030.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000060.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000090.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000120.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000150.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000180.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000210.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000240.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000270.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000300.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000330.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000360.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000390.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000420.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000450.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000480.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000510.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000540.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000570.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000600.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000630.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000660.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000690.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000720.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000750.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000780.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000810.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000840.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000870.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000900.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000930.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000960.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00000990.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001020.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001050.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001080.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001110.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001140.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001170.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001200.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001230.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001260.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001290.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001320.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001350.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001380.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001410.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001440.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001470.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001500.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001530.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001560.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001590.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001620.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001650.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001680.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001710.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001740.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001770.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001800.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001830.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001860.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001890.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001920.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001950.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00001980.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002010.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002040.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002070.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002100.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002130.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002160.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002190.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002220.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002250.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002280.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002310.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002340.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002370.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002400.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002430.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002460.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002490.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002520.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002550.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002580.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002610.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002640.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002670.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002700.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002730.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002760.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002790.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002820.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002850.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002880.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002910.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002940.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00002970.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003000.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003030.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003060.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003090.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003120.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003150.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003180.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003210.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003240.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003270.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003300.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003330.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003360.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003390.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003420.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003450.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003480.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003510.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003540.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003570.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003600.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003630.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003660.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003690.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003720.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003750.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003780.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003810.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003840.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003870.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003900.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003930.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003960.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00003990.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004020.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004050.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004080.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004110.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004140.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004170.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004200.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004230.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004260.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004290.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004320.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004350.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004380.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004410.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004440.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004470.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004500.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004530.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004560.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004590.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004620.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004650.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004680.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004710.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004740.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004770.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004800.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004830.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004860.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004890.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004920.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004950.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00004980.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005010.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005040.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005070.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005100.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005130.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005160.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005190.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005220.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005250.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005280.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005310.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005340.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005370.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005400.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005430.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005460.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005490.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005520.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005550.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005580.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005610.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005640.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005670.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005700.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005730.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005760.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005790.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005820.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005850.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005880.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005910.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005940.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00005970.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006000.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006030.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006060.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006090.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006120.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006150.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006180.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006210.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006240.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006270.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006300.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006330.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006360.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006390.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006420.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006450.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006480.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006510.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006540.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006570.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006600.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006630.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006660.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006690.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006720.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006750.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006780.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006810.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006840.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006870.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006900.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006930.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006960.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00006990.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007020.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007050.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007080.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007110.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007140.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007170.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007200.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007230.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007260.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007290.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007320.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007350.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007380.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007410.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007440.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007470.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007500.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007530.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007560.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007590.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007620.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007650.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007680.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007710.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007740.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007770.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007800.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007830.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007860.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007890.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007920.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007950.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_007_long/00007980.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000000.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000030.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000060.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000090.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000120.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000150.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000180.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000210.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000240.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000270.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000300.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000330.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000360.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000390.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000420.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000450.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000480.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000510.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000540.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000570.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000600.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000630.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000660.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000690.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000720.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000750.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000780.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000810.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000840.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000870.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000900.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000930.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000960.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00000990.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001020.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001050.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001080.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001110.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001140.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001170.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001200.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001230.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001260.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001290.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001320.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001350.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001380.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001410.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001440.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001470.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001500.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001530.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001560.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001590.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001620.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001650.png jump
+/media/mm/RichMan/hzgb/images/loc/hzgb_f4_r2_010/00001680.png jump
+==================================
+ copy.locdb 
+ copy database to loc.db 
+==================================
+copy from  /media/mm/RichMan/hzgb//database.db  to  /media/mm/RichMan/hzgb//loc.db
+==================================
+ custom.rmcharuco 
+ remove charuco images 
+==================================
+rm  /media/mm/RichMan/hzgb/images/charuco
+==================================
+ colmap.image_reg 
+ registration loc images 
+==================================
+{
+  "note": "registration loc images",
+  "database": "/media/mm/RichMan/hzgb//loc.db",
+  "image_path": "/media/mm/RichMan/hzgb/images",
+  "input_model": "/media/mm/RichMan/hzgb//sparse/geo",
+  "output_model": "/media/mm/RichMan/hzgb//sparse/loc",
+  "vocfile": "/home/mm/ARWorkspace/colmap/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "colmap": {
+    "feature_extractor": {
+      "database_path": "/media/mm/RichMan/hzgb//loc.db",
+      "image_path": "/media/mm/RichMan/hzgb/images",
+      "ImageReader.single_camera_per_folder": 1,
+      "ImageReader.default_focal_length_factor": 0.85,
+      "ImageReader.camera_model": "SIMPLE_RADIAL"
+    },
+    "exhaustive_matcher": {
+      "database_path": "/media/mm/RichMan/hzgb//loc.db"
+    },
+    "mapper": {
+      "database_path": "/media/mm/RichMan/hzgb//loc.db",
+      "image_path": "/media/mm/RichMan/hzgb/images",
+      "input_path": "/media/mm/RichMan/hzgb//sparse/geo",
+      "output_path": "/media/mm/RichMan/hzgb//sparse/loc",
+      "Mapper.fix_existing_images": 1,
+      "Mapper.abs_pose_min_num_inliers": 50
+    },
+    "model_aligner": {
+      "ref_images_path": "/media/mm/RichMan/hzgb//sparse/geo/geos.txt",
+      "input_path": "/media/mm/RichMan/hzgb//sparse/loc",
+      "output_path": "/media/mm/RichMan/hzgb//sparse/loc",
+      "robust_alignment_max_error": 0.05
+    }
+  },
+  "colmap_seqmatch": {
+    "note": "\u5f53\u573a\u666f\u76f8\u4f3c\u5ea6\u9ad8/\u5bf9\u901f\u5ea6\u8981\u6c42\u9ad8\u65f6\uff0c\u53ef\u4ee5\u4f7f\u7528sequential_matcher + vocab_tree_matcher \u66ff\u6362\u6389\u66b4\u529b\u5339\u914d, \u6216seq+loop_detect",
+    "feature_extractor": {
+      "database_path": "${database}",
+      "image_path": "${image_path}",
+      "ImageReader.single_camera_per_folder": 1,
+      "ImageReader.camera_model": "camera.loc"
+    },
+    "sequential_matcher": {
+      "database_path": "${database}",
+      "SiftMatching.min_num_inliers": 100,
+      "SequentialMatching.overlap": 10,
+      "SequentialMatching.loop_detection": 0,
+      "SequentialMatching.loop_detection_period": 10,
+      "SequentialMatching.vocab_tree_path": "${vocfile}"
+    },
+    "vocab_tree_matcher": {
+      "database_path": "${database}",
+      "SiftMatching.min_num_inliers": 200,
+      "VocabTreeMatching.vocab_tree_path": "${vocfile}"
+    },
+    "mapper": {
+      "database_path": "${database}",
+      "image_path": "${image_path}",
+      "output_path": "${output_model}",
+      "Mapper.abs_pose_min_num_inliers": 50
+    },
+    "model_aligner": {
+      "ref_images_path": "${input_model}/geos.txt",
+      "input_path": "${output_model}",
+      "output_path": "${output_model}",
+      "robust_alignment_max_error": 0.05
+    }
+  }
+}
+colmap feature_extractor --database_path /media/mm/RichMan/hzgb//loc.db --image_path /media/mm/RichMan/hzgb/images --ImageReader.single_camera_per_folder 1 --ImageReader.default_focal_length_factor 0.85 --ImageReader.camera_model SIMPLE_RADIAL
+colmap exhaustive_matcher --database_path /media/mm/RichMan/hzgb//loc.db
+colmap mapper --database_path /media/mm/RichMan/hzgb//loc.db --image_path /media/mm/RichMan/hzgb/images --input_path /media/mm/RichMan/hzgb//sparse/geo --output_path /media/mm/RichMan/hzgb//sparse/loc --Mapper.fix_existing_images 1 --Mapper.abs_pose_min_num_inliers 50
+colmap model_aligner --ref_images_path /media/mm/RichMan/hzgb//sparse/geo/geos.txt --input_path /media/mm/RichMan/hzgb//sparse/loc --output_path /media/mm/RichMan/hzgb//sparse/loc --robust_alignment_max_error 0.05

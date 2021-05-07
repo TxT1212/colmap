@@ -1,0 +1,113 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/data/largescene/guobo/videos",
+  "video_frame_path": "/data/largescene/guobo/frames",
+  "model_proj_path": "/media/mm/RichMan/hzgb/videos_insta_f4",
+  "model_proj_image_path": "/media/netease/Storage/LargeScene/Scene/XixiWetland/colmap_model/test_butterfly/images",
+  "colmap_voc_file": "/home/netease/ARWorkspace/colmap_ezxr/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/netease/ARWorkspace/colmap_ezxr/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+check params, commands and status, Press to continue...
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+-----------command note-----------
+extract_image_from_video.py  /data/largescene/guobo/videos   /data/largescene/guobo/frames   True   60   -1   False   False   1280   720
+----------------------------------
+Open New Thread, Valid_thread =  4
+Open New Thread, Valid_thread =  3
+Open New Thread, Valid_thread =  2
+Jump  /data/largescene/guobo/frames/base/hzgb_f4_r1_001
+Open New Thread, Valid_thread =  1Jump  /data/largescene/guobo/frames/base/hzgb_f4_r1_005
+
+Open New Thread, Valid_thread =  0
+start video2image  /data/largescene/guobo/videos/base/hzgb_f2_r1_102.insv , frames =  823.0
+start video2image  /data/largescene/guobo/videos/base/hzgb_f3_r1_001.insv , frames =  4881.0
+start video2image  /data/largescene/guobo/videos/base/hzgb_f3_r1_002.insv , frames =  6191.0
+start video2image  /data/largescene/guobo/videos/base/hzgb_f2_r1_101.insv , frames =  991.0
+start video2image  /data/largescene/guobo/videos/base/hzgb_f2_out_r1_102.insv , frames =  2117.0
+finish video2image  /data/largescene/guobo/videos/base/hzgb_f2_r1_102.insv
+Valid_thread =  1
+finished / total = 3  /  23
+Open New Thread, Valid_thread =  0Jump  /data/largescene/guobo/frames/base/hzgb_f4_r1_002
+
+start video2image  /data/largescene/guobo/videos/base/hzgb_f2_outin_r1_102.insv , frames =  1257.0
+finish video2image  /data/largescene/guobo/videos/base/hzgb_f2_r1_101.insv
+Valid_thread =  1
+finished / total = 5  /  23
+Open New Thread, Valid_thread =  0
+start video2image  /data/largescene/guobo/videos/base/hzgb_f2_out_r1_101.insv , frames =  1086.0
+finish video2image  /data/largescene/guobo/videos/base/hzgb_f3_r1_001.insv
+Valid_thread =  1
+finished / total = 6  /  23
+Open New Thread, Valid_thread =  0
+start video2image  /data/largescene/guobo/videos/base/hzgb_f2_r1_103.insv , frames =  648.0
+finish video2image  /data/largescene/guobo/videos/base/hzgb_f2_out_r1_101.insv
+Valid_thread =  1
+finished / total = 7  /  23
+Open New Thread, Valid_thread =  0
+Jump  /data/largescene/guobo/frames/base/hzgb_f4_r1_003
+finish video2image  /data/largescene/guobo/videos/base/hzgb_f2_out_r1_102.insv
+Valid_thread =  1
+finished / total = 9  /  23
+start video2image  /data/largescene/guobo/videos/base/hzgb_f3_r1_003.insv , frames =  6096.0
+Open New Thread, Valid_thread =  0
+start video2image  /data/largescene/guobo/videos/base/hzgb_f2_outin_r1_101.insv , frames =  925.0
+finish video2image  /data/largescene/guobo/videos/base/hzgb_f2_outin_r1_102.insv
+Valid_thread =  1
+finished / total = 10  /  23
+Open New Thread, Valid_thread =  0
+Jump  /data/largescene/guobo/frames/base/hzgb_f4_r1_004
+start video2image  /data/largescene/guobo/videos/base/hzgb_f2_out_r1_103.insv , frames =  798.0
+finish video2image  /data/largescene/guobo/videos/base/hzgb_f3_r1_002.insv
+Valid_thread =  1
+finished / total = 12  /  23
+Open New Thread, Valid_thread =  0
+start video2image  /data/largescene/guobo/videos/charuco/hzgb_f2_out_r3_103.insv , frames =  441.0
+finish video2image  /data/largescene/guobo/videos/base/hzgb_f2_r1_103.insv
+Valid_thread =  1
+finished / total = 13  /  23
+Open New Thread, Valid_thread =  0
+Jump  /data/largescene/guobo/frames/charuco/hzgb_f4_r3_002
+Jump  /data/largescene/guobo/frames/charuco/hzgb_f4_r3_001
+start video2image  /data/largescene/guobo/videos/charuco/hzgb_f2_out_r3_101.insv , frames =  487.0
+finish video2image  /data/largescene/guobo/videos/charuco/hzgb_f2_out_r3_103.insv
+Valid_thread =  1
+finished / total = 16  /  23
+finish video2image  /data/largescene/guobo/videos/base/hzgb_f2_out_r1_103.insv
+Valid_thread =  2
+finished / total = 17  /  23
+Open New Thread, Valid_thread =  1
+Open New Thread, Valid_thread =  0
+start video2image  /data/largescene/guobo/videos/charuco/hzgb_f3_r3_003.insv , frames =  754.0
+start video2image  /data/largescene/guobo/videos/charuco/hzgb_f3_r3_001.insv , frames =  891.0
+finish video2image  /data/largescene/guobo/videos/base/hzgb_f2_outin_r1_101.insv
+Valid_thread =  1
+finished / total = 18  /  23
+Open New Thread, Valid_thread =  0
+start video2image  /data/largescene/guobo/videos/charuco/hzgb_f2_out_r3_102.insv , frames =  377.0
+finish video2image  /data/largescene/guobo/videos/charuco/hzgb_f2_out_r3_101.insv
+Valid_thread =  1
+finished / total = 19  /  23
+finish video2image  /data/largescene/guobo/videos/charuco/hzgb_f2_out_r3_102.insv
+Valid_thread =  2
+finished / total = 20  /  23
+finish video2image  /data/largescene/guobo/videos/charuco/hzgb_f3_r3_003.insv
+Valid_thread =  3
+finished / total = 21  /  23
+finish video2image  /data/largescene/guobo/videos/charuco/hzgb_f3_r3_001.insv
+Valid_thread =  4
+finished / total = 22  /  23
+finish video2image  /data/largescene/guobo/videos/base/hzgb_f3_r1_003.insv
+Valid_thread =  5
+finished / total = 23  /  23

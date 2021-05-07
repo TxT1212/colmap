@@ -1,0 +1,347 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/data/largescene/shunyu/videos/",
+  "video_frame_path": "/data/largescene/shunyu/images",
+  "model_proj_path": "/data/largescene/shunyu/",
+  "model_proj_image_path": "/data/largescene/shunyu/images",
+  "colmap_voc_file": "/home/netease/ARWorkspace/colmap_ezxr/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "SIMPLE_RADIAL",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+Jump  colmap.base_reconstruction
+Jump  copy.charucoimage
+Jump  copy.db
+Jump  custom.charuco_match_list
+Jump  colmap.charuco_registration
+******Check Below Result****** custom.charuco_detect
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+Jump  custom.create_gravity_list
+******Check Below Result****** colmap.gravity
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+******Check Below Result****** colmap.makegeo
+==================================
+ colmap.makegeo 
+ produce geo model with only base images(for dense reconstruction) 
+==================================
+check params, commands and status, Press to continue...
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+Jump  colmap.base_reconstruction
+Jump  copy.charucoimage
+Jump  copy.db
+Jump  custom.charuco_match_list
+Jump  colmap.charuco_registration
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+-------charuco detection-------
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (1, 1, 2) charuco corners
+detect  (18, 1, 2) charuco corners
+detect  (16, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+detect  (15, 1, 2) charuco corners
+detect  (15, 1, 2) charuco corners
+detect  (13, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (29, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (31, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (33, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (17, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (19, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (34, 1, 2) charuco corners
+detect  (30, 1, 2) charuco corners
+detect  (25, 1, 2) charuco corners
+detect  (28, 1, 2) charuco corners
+detect  (28, 1, 2) charuco corners
+detect  (19, 1, 2) charuco corners
+detect  (20, 1, 2) charuco corners
+detect  (18, 1, 2) charuco corners
+detect  (18, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+detect  (14, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+detect  (8, 1, 2) charuco corners
+detect  (15, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+detect  (8, 1, 2) charuco corners
+detect  (8, 1, 2) charuco corners
+detect  (5, 1, 2) charuco corners
+detect  (5, 1, 2) charuco corners
+detect  (5, 1, 2) charuco corners
+detect  (2, 1, 2) charuco corners
+detect  (2, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+colmap database_creator --database_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114619.db
+colmap feature_importer --database_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114619.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/shunyu/images --import_path /data/largescene/shunyu/charucos/detection/
+set_camera {(2, 2)}
+colmap matches_importer --database_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114619.db --match_list_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114619_match.txt --match_type raw
+colmap point_triangulator --database_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114619.db --image_path /data/largescene/shunyu/images --input_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114619_model/ --output_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114619_model/ --Mapper.tri_ignore_two_view_tracks 0
+84   0 [ 3.12141841  0.65840828  2.65204056 63.        ]
+83   1 [ 3.05214379  0.5847921   2.69318464 53.        ]
+82   2 [ 3.12415365  0.5827355   2.66658814 52.        ]
+81   3 [ 3.05503224  0.50942994  2.70703898 42.        ]
+80   4 [ 3.12702063  0.50733018  2.68047953 41.        ]
+79   5 [ 3.05795213  0.43401135  2.72223896 31.        ]
+78   6 [ 3.12998019  0.43193453  2.69568257 30.        ]
+77   7 [ 3.20143551  0.42943555  2.66745242 29.        ]
+76   8 [ 3.27155807  0.42624945  2.63615074 28.        ]
+75   9 [ 3.04646341  0.7360654   2.66397954 75.        ]
+74   10 [ 2.97663727  0.66178674  2.7017629  65.        ]
+73   11 [ 3.19808355  0.50456905  2.65116339 40.        ]
+72   12 [ 3.26631274  0.5775244   2.60849033 50.        ]
+71   13 [ 3.19570499  0.58038615  2.6383815  51.        ]
+70   14 [ 3.26290547  0.65267498  2.5915291  61.        ]
+69   15 [ 3.19231209  0.65547691  2.62147387 62.        ]
+68   16 [ 3.26017278  0.72858564  2.57814817 72.        ]
+67   17 [ 3.18954656  0.73119993  2.60724876 73.        ]
+66   18 [3.27811381 0.27550234 2.66749365 6.        ]
+65   19 [3.20719068 0.27826946 2.69670263 7.        ]
+64   20 [3.13566284 0.28080549 2.72520742 8.        ]
+63   21 [ 3.27509063  0.35098155  2.65228174 17.        ]
+62   22 [ 3.20432139  0.3539299   2.68253571 18.        ]
+61   23 [ 3.13293871  0.35640542  2.71043417 19.        ]
+53   24 [ 2.97955974  0.58656139  2.71775978 54.        ]
+48   25 [ 2.98253951  0.5112765   2.7323118  43.        ]
+44   26 [ 3.26651766  0.50008836  2.61480695 39.        ]
+43   27 [ 2.98516863  0.43583643  2.74686679 32.        ]
+38   28 [ 2.98796841  0.36017212  2.7611634  21.        ]
+37   29 [ 3.06072968  0.35846716  2.73706437 20.        ]
+16   30 [ 3.04929899  0.66041437  2.67834644 64.        ]
+17   31 [ 3.11851649  0.73401362  2.63693186 74.        ]
+20   32 [ 2.97380648  0.737497    2.68706784 76.        ]
+21   33 [ 3.26950496  0.50229744  2.62447033 39.        ]
+32   34 [3.06346632 0.28286976 2.75155654 9.        ]
+33   35 [ 2.99057701  0.28462424  2.7755338  10.        ]
+create_charuco_corners:  24 x 12
+square_length:  9.9
+marker_length:  7.4
+charuco board size =  24 x 12
+we split it into =  3 x 2
+split charuco board size =  8 x 6
+----------------------------charuco match----------------------------
+split_charuco_board  3_2 :
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+charuco not found in  base/VID_20210223_114518
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+charuco not found in  base/VID_20210223_114727
+detect  (34, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (32, 1, 2) charuco corners
+detect  (32, 1, 2) charuco corners
+detect  (28, 1, 2) charuco corners
+detect  (16, 1, 2) charuco corners
+detect  (17, 1, 2) charuco corners
+detect  (21, 1, 2) charuco corners
+detect  (20, 1, 2) charuco corners
+detect  (21, 1, 2) charuco corners
+detect  (15, 1, 2) charuco corners
+detect  (16, 1, 2) charuco corners
+detect  (15, 1, 2) charuco corners
+detect  (13, 1, 2) charuco corners
+detect  (13, 1, 2) charuco corners
+detect  (8, 1, 2) charuco corners
+detect  (6, 1, 2) charuco corners
+detect  (3, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+detect  (16, 1, 2) charuco corners
+detect  (6, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+detect  (16, 1, 2) charuco corners
+detect  (10, 1, 2) charuco corners
+detect  (15, 1, 2) charuco corners
+detect  (16, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (30, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (31, 1, 2) charuco corners
+detect  (31, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+detect  (11, 1, 2) charuco corners
+colmap database_creator --database_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114859.db
+colmap feature_importer --database_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114859.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/shunyu/images --import_path /data/largescene/shunyu/charucos/detection/
+set_camera {(4, 4), (2, 2)}
+colmap matches_importer --database_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114859.db --match_list_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114859_match.txt --match_type raw
+colmap point_triangulator --database_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114859.db --image_path /data/largescene/shunyu/images --input_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114859_model/ --output_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114859_model/ --Mapper.tri_ignore_two_view_tracks 0
+35   0 [ 3.26216884  0.72920252  2.58129369 72.        ]
+34   1 [ 2.97493766  0.7382655   2.69065388 76.        ]
+33   2 [ 3.04772823  0.73650054  2.66617253 75.        ]
+32   3 [ 3.11926673  0.73404593  2.63999872 74.        ]
+31   4 [ 3.19083562  0.73180502  2.61156927 73.        ]
+30   5 [ 2.97801418  0.66284163  2.70467561 65.        ]
+29   6 [ 3.05033812  0.6608525   2.68036294 64.        ]
+28   7 [ 3.12264378  0.65888257  2.65399353 63.        ]
+27   8 [ 3.19376526  0.65650126  2.62568699 62.        ]
+26   9 [ 3.26461474  0.65370573  2.59512459 61.        ]
+25   10 [ 2.98021965  0.58723506  2.71883486 54.        ]
+24   11 [ 3.05277257  0.5853938   2.69447383 53.        ]
+23   12 [ 3.12482252  0.58342767  2.6681136  52.        ]
+22   13 [ 3.19681301  0.58079553  2.64003842 51.        ]
+21   14 [ 3.26733664  0.57804459  2.60991079 50.        ]
+20   15 [ 2.98284377  0.51166564  2.73307497 43.        ]
+19   16 [ 3.05562289  0.50992557  2.70888709 42.        ]
+18   17 [ 3.12767442  0.50780098  2.68277146 41.        ]
+17   18 [ 3.19897136  0.50523928  2.6547345  40.        ]
+6   19 [ 3.27547167  0.35121987  2.65373762 17.        ]
+5   20 [ 2.99060608  0.2846749   2.77465275 10.        ]
+4   21 [3.06346606 0.28279799 2.75048978 9.        ]
+3   22 [3.13554051 0.28078703 2.72484733 8.        ]
+1   23 [3.27810072 0.27565788 2.66825004 6.        ]
+2   24 [3.20697425 0.27828122 2.697629   7.        ]
+7   25 [ 3.20435275  0.35402187  2.68354623 18.        ]
+8   26 [ 3.13314247  0.35651955  2.71107645 19.        ]
+9   27 [ 3.06099715  0.35858161  2.73672614 20.        ]
+10   28 [ 2.9880559   0.36029491  2.76086973 21.        ]
+11   29 [ 3.27265877  0.42689624  2.63918032 28.        ]
+12   30 [ 3.20175414  0.42965832  2.66929352 29.        ]
+13   31 [ 3.13030979  0.43221218  2.69685462 30.        ]
+14   32 [ 3.05832292  0.43432226  2.7228164  31.        ]
+15   33 [ 2.98541181  0.43603323  2.74692968 32.        ]
+16   34 [ 3.27000692  0.50245053  2.62473449 39.        ]
+create_charuco_corners:  24 x 12
+square_length:  9.9
+marker_length:  7.4
+charuco board size =  24 x 12
+we split it into =  3 x 2
+split charuco board size =  8 x 6
+----------------------------charuco match----------------------------
+split_charuco_board  3_2 :
+optimizing...
+`xtol` termination condition is satisfied.
+Function evaluations 24752, initial cost 1.5434e-02, final cost 1.2899e-02, first-order optimality 8.45e-03.
+opted scale =  1.2860455845658567
+board id = 3_2, mean error(unit:m) = 0.0024661160663111926, point number = 36
+
+board id = 3_2, mean error(unit:m) = 0.002052555232522226, point number = 35
+
+opted scale = 1.2860455845658567
+
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+Finish, check result, and press to continue
+Jump  custom.create_gravity_list
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+{
+  "note": "\u4ec5\u7528base/gravity\u751f\u6210model\uff0calign to gravity(run export geo to get gravityz)",
+  "database": "/data/largescene/shunyu//charuco.db",
+  "image_path": "/data/largescene/shunyu/images",
+  "input_model": "/data/largescene/shunyu//sparse/charuco_rescale",
+  "gravity_model": "/data/largescene/shunyu//sparse/charuco_rescale_select_gravity",
+  "gravity_list": "/data/largescene/shunyu//gravity_delete_list.txt",
+  "output_model": "/data/largescene/shunyu//sparse/gravity",
+  "colmap": {
+    "model_orientation_aligner": {
+      "image_path": "/data/largescene/shunyu/images",
+      "input_path": "/data/largescene/shunyu//sparse/charuco_rescale",
+      "output_path": "/data/largescene/shunyu//sparse/gravity",
+      "max_image_size": 1024
+    }
+  }
+}
+colmap model_orientation_aligner --image_path /data/largescene/shunyu/images --input_path /data/largescene/shunyu//sparse/charuco_rescale --output_path /data/largescene/shunyu//sparse/gravity --max_image_size 1024
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+Finish, check result, and press to continue
+==================================
+ colmap.makegeo 
+ produce geo model with only base images(for dense reconstruction) 
+==================================
+{
+  "note": "produce geo model with only base images(for dense reconstruction)",
+  "ref_images_txt": "/data/largescene/shunyu//sparse/gravity/geos.txt",
+  "database": "/data/largescene/shunyu//database.db",
+  "image_path": "/data/largescene/shunyu/images",
+  "input_model": "/data/largescene/shunyu//sparse/org",
+  "output_model": "/data/largescene/shunyu//sparse/geo",
+  "colmap": {
+    "model_aligner": {
+      "ref_images_path": "/data/largescene/shunyu//sparse/gravity/geos.txt",
+      "input_path": "/data/largescene/shunyu//sparse/org",
+      "output_path": "/data/largescene/shunyu//sparse/geo",
+      "robust_alignment_max_error": 0.05
+    }
+  }
+}
+colmap model_aligner --ref_images_path /data/largescene/shunyu//sparse/gravity/geos.txt --input_path /data/largescene/shunyu//sparse/org --output_path /data/largescene/shunyu//sparse/geo --robust_alignment_max_error 0.05
+==================================
+ colmap.makegeo 
+ produce geo model with only base images(for dense reconstruction) 
+==================================
+Finish, check result, and press to continue

@@ -1,0 +1,26 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/data/largescene/guobo/videos_selected",
+  "video_frame_path": "/data/largescene/guobo/frames_selected",
+  "model_proj_path": "/media/mm/RichMan/hzgb/videos_insta_f4",
+  "model_proj_image_path": "/media/netease/Storage/LargeScene/Scene/XixiWetland/colmap_model/test_butterfly/images",
+  "colmap_voc_file": "/home/netease/ARWorkspace/colmap_ezxr/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/netease/ARWorkspace/colmap_ezxr/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+-----------command note-----------
+extract_image_from_video.py  /data/largescene/guobo/videos_selected   /data/largescene/guobo/frames_selected   True   30   -1   False   False   1280   720
+----------------------------------
+源文件夹不存在

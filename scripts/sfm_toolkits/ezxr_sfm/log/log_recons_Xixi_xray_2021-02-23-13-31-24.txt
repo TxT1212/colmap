@@ -1,0 +1,15 @@
+{
+  "colmap_app_path": "colmap",
+  "model_proj_path": "/data/largescene/AoMenAir/",
+  "model_proj_image_path": "/data/largescene/AoMenAir/images_aomenair"
+}
+{
+  "base": "SIMPLE_RADIAL",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ colmap.dense_reconstruction 
+ dense_reconstruction 
+==================================
+check params, commands and status, Press to continue...

@@ -1,0 +1,105 @@
+{
+  "colmap_app_path": "colmap",
+  "video_frame_path": "/data/largescene/guobo/frames",
+  "model_proj_path": "/data/largescene/guobo/",
+  "model_proj_image_path": "/data/largescene/guobo/images",
+  "colmap_voc_file": "/home/mm/ARWorkspace/colmap/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "OPENCV_FISHEYE",
+  "loc": "SIMPLE_RADIAL"
+}
+Jump  copy.loc_image
+Jump  copy.locdb
+Jump  custom.rmcharuco
+==================================
+ colmap.image_reg 
+ registration loc images 
+==================================
+Jump  copy.loc_image
+Jump  copy.locdb
+Jump  custom.rmcharuco
+==================================
+ colmap.image_reg 
+ registration loc images 
+==================================
+{
+  "note": "registration loc images",
+  "database": "/data/largescene/guobo//loc_f2daynight.db",
+  "image_path": "/data/largescene/guobo/images",
+  "input_model": "/data/largescene/guobo//sparse/loc_f2daynight",
+  "output_model": "/data/largescene/guobo//sparse/loc_f2daynight_2",
+  "vocfile": "/home/mm/ARWorkspace/colmap/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "colmap": {
+    "feature_extractor": {
+      "database_path": "/data/largescene/guobo//loc_f2daynight.db",
+      "image_path": "/data/largescene/guobo/images",
+      "ImageReader.single_camera_per_folder": 1,
+      "ImageReader.default_focal_length_factor": 0.85,
+      "ImageReader.camera_model": "SIMPLE_RADIAL",
+      "image_list_path": "/data/largescene/guobo/validf2out.txt"
+    },
+    "matches_importer": {
+      "database_path": "/data/largescene/guobo//loc_f2daynight.db",
+      "match_list_path": "/data/largescene/guobo/custom_match_list_f2daynight.txt"
+    },
+    "mapper": {
+      "database_path": "/data/largescene/guobo//loc_f2daynight.db",
+      "image_path": "/data/largescene/guobo/images",
+      "input_path": "/data/largescene/guobo//sparse/loc_f2daynight",
+      "output_path": "/data/largescene/guobo//sparse/loc_f2daynight_2",
+      "image_list_path": "/data/largescene/guobo/validf2out.txt",
+      "Mapper.fix_existing_images": 1,
+      "Mapper.ba_global_images_ratio": 2,
+      "Mapper.ba_global_points_ratio": 2,
+      "Mapper.abs_pose_min_num_inliers": 60,
+      "Mapper.ba_global_max_refinement_change": 0.001
+    },
+    "model_aligner": {
+      "ref_images_path": "/data/largescene/guobo//sparse/loc_f2daynight/geos.txt",
+      "input_path": "/data/largescene/guobo//sparse/loc_f2daynight_2",
+      "output_path": "/data/largescene/guobo//sparse/loc_f2daynight_2",
+      "robust_alignment_max_error": 0.05
+    }
+  },
+  "colmap_seqmatch": {
+    "note": "\u5f53\u573a\u666f\u76f8\u4f3c\u5ea6\u9ad8/\u5bf9\u901f\u5ea6\u8981\u6c42\u9ad8\u65f6\uff0c\u53ef\u4ee5\u4f7f\u7528sequential_matcher + vocab_tree_matcher \u66ff\u6362\u6389\u66b4\u529b\u5339\u914d, \u6216seq+loop_detect",
+    "feature_extractor": {
+      "database_path": "${database}",
+      "image_path": "${image_path}",
+      "ImageReader.single_camera_per_folder": 1,
+      "ImageReader.camera_model": "camera.loc"
+    },
+    "sequential_matcher": {
+      "database_path": "${database}",
+      "SiftMatching.min_num_inliers": 100,
+      "SequentialMatching.overlap": 10,
+      "SequentialMatching.loop_detection": 0,
+      "SequentialMatching.loop_detection_period": 10,
+      "SequentialMatching.vocab_tree_path": "${vocfile}"
+    },
+    "vocab_tree_matcher": {
+      "database_path": "${database}",
+      "SiftMatching.min_num_inliers": 200,
+      "VocabTreeMatching.vocab_tree_path": "${vocfile}"
+    },
+    "mapper": {
+      "database_path": "${database}",
+      "image_path": "${image_path}",
+      "output_path": "${output_model}",
+      "Mapper.abs_pose_min_num_inliers": 50
+    },
+    "model_aligner": {
+      "ref_images_path": "${input_model}/geos.txt",
+      "input_path": "${output_model}",
+      "output_path": "${output_model}",
+      "robust_alignment_max_error": 0.05
+    }
+  }
+}
+colmap feature_extractor --database_path /data/largescene/guobo//loc_f2daynight.db --image_path /data/largescene/guobo/images --ImageReader.single_camera_per_folder 1 --ImageReader.default_focal_length_factor 0.85 --ImageReader.camera_model SIMPLE_RADIAL --image_list_path /data/largescene/guobo/validf2out.txt
+colmap matches_importer --database_path /data/largescene/guobo//loc_f2daynight.db --match_list_path /data/largescene/guobo/custom_match_list_f2daynight.txt
+colmap mapper --database_path /data/largescene/guobo//loc_f2daynight.db --image_path /data/largescene/guobo/images --input_path /data/largescene/guobo//sparse/loc_f2daynight --output_path /data/largescene/guobo//sparse/loc_f2daynight_2 --image_list_path /data/largescene/guobo/validf2out.txt --Mapper.fix_existing_images 1 --Mapper.ba_global_images_ratio 2 --Mapper.ba_global_points_ratio 2 --Mapper.abs_pose_min_num_inliers 60 --Mapper.ba_global_max_refinement_change 0.001
+colmap model_aligner --ref_images_path /data/largescene/guobo//sparse/loc_f2daynight/geos.txt --input_path /data/largescene/guobo//sparse/loc_f2daynight_2 --output_path /data/largescene/guobo//sparse/loc_f2daynight_2 --robust_alignment_max_error 0.05

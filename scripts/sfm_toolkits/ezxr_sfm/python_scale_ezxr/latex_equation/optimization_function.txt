@@ -1,0 +1,14 @@
+说明: 把下面的code放到[在线latex编辑](https://www.codecogs.com/latex/eqneditor.php), 生成png
+
+```
+argmin F(T_{l}^{g}(1), T_{l}^{g}(2), ..., T_{l}^{g}(n), \sigma ) = argmin \sum \left \| T_{l}^{g}(i) * pt_{l}(j) - \sigma * pt_{g}(j) \right \|  \\
+\\
+\sigma: the \ scale \ of \ colmap \ model \\
+T_{l}^{g}(i): the \ ith \ Transform \ from \ local \ to \ global \\
+\\
+i: the \ index \ for \ camera \ from \ 1 \ to \ n \\
+j: the \ index \ for \ point \ from \ 1 \ to \ m \\
+pt_{l}(j): the \ jth \ local \ point(on \ charuco \ board) \\
+pt_{g}(j): the \ jth \ global \ point(on \ colmap ), 3d \ points \ triangulated \ nviews
+
+```

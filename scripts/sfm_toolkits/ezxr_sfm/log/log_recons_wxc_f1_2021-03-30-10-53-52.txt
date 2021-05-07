@@ -1,0 +1,145 @@
+{
+  "colmap_app_path": "colmap",
+  "model_proj_path": "/data/largescene/ezxr_bd/wh-gzsct/",
+  "model_proj_image_path": "/data/largescene/ezxr_bd/wh-gzsct/images",
+  "base_model": "/data/largescene/ezxr_bd/wh-gzsct/sparse/wh-gzsctwh_geo_210329",
+  "base_database": "/data/largescene/ezxr_bd/wh-gzsct/database/wh-gzsctwh.db",
+  "scene_proj_path": "/data/largescene/ezxr_bd/wh-gzsct/Scene_wh-gzsctwh_210329/",
+  "hfnet_proj_path": "/home/mm/ARWorkspace/AREngine2/src/dlfeatures/",
+  "image_ext": ".jpg",
+  "matcher_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/colmap_process/match_features_with_db_prior.py",
+  "locmap_folder": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/data/locmap_config/locmap_ver20210315"
+}
+{
+  "base": "SIMPLE_RADIAL",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ external.hfnet_extractor 
+ hfnet特征提取，外部python命令 
+==================================
+==================================
+ external.hfnet_matcher 
+ hfnet特征匹配，外部python命令 
+==================================
+==================================
+ colmap.hfnet_database 
+ 新建db，导入自定义特征 
+==================================
+==================================
+ custom.model_reorder 
+ 根据database中的图像顺序，筛选并重排model中的图像序号 
+==================================
+==================================
+ colmap.hfnet_model 
+ 制作给定特征的定位地图 
+==================================
+==================================
+ copy.scene_folder 
+ copy scene_folder 
+==================================
+==================================
+ copy.scene_net 
+ copy scene_net 
+==================================
+==================================
+ copy.scene_features 
+ copy scene_feature 
+==================================
+==================================
+ copy.scene_colmap_model 
+ copy scene_colmap_model 
+==================================
+Can't find command  copy.scene_images  in run list
+==================================
+ external.hfnet_extractor 
+ hfnet特征提取，外部python命令 
+==================================
+python3 /home/mm/ARWorkspace/AREngine2/src/dlfeatures//tools/extract_features.py --jonson_tag hfnet --dlfeatures_type hfnet --dlfeatures_assets_path /home/mm/ARWorkspace/AREngine2/src/dlfeatures//native/assets_hfnet --image_path /data/largescene/ezxr_bd/wh-gzsct/images --image_ext .jpg --model_path /data/largescene/ezxr_bd/wh-gzsct/sparse/wh-gzsctwh_geo_210329 --feature_path /data/largescene/ezxr_bd/wh-gzsct//features/hfnet --image_subfolder_nums 11 --image_subfolders_list_file /data/largescene/ezxr_bd/wh-gzsct//tasks/loclist.txt
+==================================
+ external.hfnet_matcher 
+ hfnet特征匹配，外部python命令 
+==================================
+python3 /home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/colmap_process/match_features_with_db_prior.py --database_file /data/largescene/ezxr_bd/wh-gzsct/database/wh-gzsctwh.db --feature_ext .npz --image_dir /data/largescene/ezxr_bd/wh-gzsct/images --feature_dir /data/largescene/ezxr_bd/wh-gzsct//features/hfnet/npz --match_list_path /data/largescene/ezxr_bd/wh-gzsct//features/hfnet/match_file.txt --use_ratio_test --ratio_test_values 0.8
+==================================
+ colmap.hfnet_database 
+ 新建db，导入自定义特征 
+==================================
+{
+  "note": "\u65b0\u5efadb\uff0c\u5bfc\u5165\u81ea\u5b9a\u4e49\u7279\u5f81",
+  "database": "/data/largescene/ezxr_bd/wh-gzsct//database/loc_hfnet.db",
+  "image_path": "/data/largescene/ezxr_bd/wh-gzsct/images",
+  "feature_path": "/data/largescene/ezxr_bd/wh-gzsct//features/hfnet",
+  "output_model": "/data/largescene/ezxr_bd/wh-gzsct//sparse/hfnet_empty",
+  "colmap": {
+    "database_creator": {
+      "database_path": "/data/largescene/ezxr_bd/wh-gzsct//database/loc_hfnet.db"
+    },
+    "feature_importer": {
+      "database_path": "/data/largescene/ezxr_bd/wh-gzsct//database/loc_hfnet.db",
+      "ImageReader.single_camera_per_folder": 1,
+      "image_path": "/data/largescene/ezxr_bd/wh-gzsct/images",
+      "import_path": "/data/largescene/ezxr_bd/wh-gzsct//features/hfnet/txt"
+    }
+  }
+}
+Missing input_model.
+
+colmap database_creator --database_path /data/largescene/ezxr_bd/wh-gzsct//database/loc_hfnet.db
+colmap feature_importer --database_path /data/largescene/ezxr_bd/wh-gzsct//database/loc_hfnet.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/ezxr_bd/wh-gzsct/images --import_path /data/largescene/ezxr_bd/wh-gzsct//features/hfnet/txt
+==================================
+ custom.model_reorder 
+ 根据database中的图像顺序，筛选并重排model中的图像序号 
+==================================
+set_camera {(5, 9), (4, 6), (10, 7), (11, 2), (2, 1), (3, 8), (6, 3), (9, 4), (1, 10), (7, 11), (8, 5)}
+==================================
+ colmap.hfnet_model 
+ 制作给定特征的定位地图 
+==================================
+{
+  "note": "\u5236\u4f5c\u7ed9\u5b9a\u7279\u5f81\u7684\u5b9a\u4f4d\u5730\u56fe",
+  "database": "/data/largescene/ezxr_bd/wh-gzsct//database/loc_hfnet.db",
+  "image_path": "/data/largescene/ezxr_bd/wh-gzsct/images",
+  "input_model": "/data/largescene/ezxr_bd/wh-gzsct//sparse/hfnet_empty",
+  "output_model": "/data/largescene/ezxr_bd/wh-gzsct//sparse/hfnet_loc",
+  "feature_path": "/data/largescene/ezxr_bd/wh-gzsct//features/hfnet",
+  "match_file": "/data/largescene/ezxr_bd/wh-gzsct//features/hfnet/match_file.txt",
+  "colmap": {
+    "matches_importer": {
+      "database_path": "/data/largescene/ezxr_bd/wh-gzsct//database/loc_hfnet.db",
+      "match_list_path": "/data/largescene/ezxr_bd/wh-gzsct//features/hfnet/match_file.txt",
+      "match_type": "raw"
+    },
+    "point_triangulator": {
+      "database_path": "/data/largescene/ezxr_bd/wh-gzsct//database/loc_hfnet.db",
+      "image_path": "/data/largescene/ezxr_bd/wh-gzsct/images",
+      "input_path": "/data/largescene/ezxr_bd/wh-gzsct//sparse/hfnet_empty",
+      "output_path": "/data/largescene/ezxr_bd/wh-gzsct//sparse/hfnet_loc"
+    }
+  }
+}
+colmap matches_importer --database_path /data/largescene/ezxr_bd/wh-gzsct//database/loc_hfnet.db --match_list_path /data/largescene/ezxr_bd/wh-gzsct//features/hfnet/match_file.txt --match_type raw
+colmap point_triangulator --database_path /data/largescene/ezxr_bd/wh-gzsct//database/loc_hfnet.db --image_path /data/largescene/ezxr_bd/wh-gzsct/images --input_path /data/largescene/ezxr_bd/wh-gzsct//sparse/hfnet_empty --output_path /data/largescene/ezxr_bd/wh-gzsct//sparse/hfnet_loc
+==================================
+ copy.scene_folder 
+ copy scene_folder 
+==================================
+copy from  /home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/data/locmap_config/locmap_ver20210315/  to  /data/largescene/ezxr_bd/wh-gzsct/Scene_wh-gzsctwh_210329//
+==================================
+ copy.scene_net 
+ copy scene_net 
+==================================
+copy from  /home/mm/ARWorkspace/AREngine2/src/dlfeatures//native/  to  /data/largescene/ezxr_bd/wh-gzsct/Scene_wh-gzsctwh_210329//dlreloc/net_model/
+==================================
+ copy.scene_features 
+ copy scene_feature 
+==================================
+copy from  /data/largescene/ezxr_bd/wh-gzsct//features/hfnet/bin  to  /data/largescene/ezxr_bd/wh-gzsct/Scene_wh-gzsctwh_210329//dlreloc/features/
+==================================
+ copy.scene_colmap_model 
+ copy scene_colmap_model 
+==================================
+copy from  /data/largescene/ezxr_bd/wh-gzsct//sparse/hfnet_loc  to  /data/largescene/ezxr_bd/wh-gzsct/Scene_wh-gzsctwh_210329//dlreloc/colmap_model/
+Can't find command  copy.scene_images  in run list
+Press to continue, and jump it

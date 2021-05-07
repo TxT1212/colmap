@@ -1,0 +1,137 @@
+{
+  "colmap_app_path": "colmap",
+  "model_proj_path": "/data/largescene/qj_city_block_selected",
+  "model_proj_image_path": "/data/largescene/qj_city_block_selected/images",
+  "scene_proj_path": "/data/largescene/qj_city_block_selected/Scene_qj_city_blockA_daynight/dlreloc",
+  "hfnet_proj_path": "/home/mm/ARWorkspace/AREngine2/src/dlfeatures",
+  "image_ext": ".jpg"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "OPENCV_FISHEYE",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ external.hfnet_extractor 
+ hfnet特征提取，外部python命令 
+==================================
+******Check Below Result****** external.hfnet_matcher
+==================================
+ external.hfnet_matcher 
+ hfnet特征匹配，外部python命令 
+==================================
+==================================
+ colmap.hfnet_database 
+ 新建db，导入自定义特征 
+==================================
+==================================
+ custom.model_reorder 
+ 根据database中的图像顺序，筛选并重排model中的图像序号 
+==================================
+==================================
+ colmap.hfnet_model 
+ 制作给定特征的定位地图 
+==================================
+==================================
+ copy.scene_net 
+ copy scene_net 
+==================================
+==================================
+ copy.scene_features 
+ copy scene_feature 
+==================================
+==================================
+ copy.scene_colmap_model 
+ copy scene_colmap_model 
+==================================
+Jump  copy.scene_images
+==================================
+ external.hfnet_extractor 
+ hfnet特征提取，外部python命令 
+==================================
+python3 /home/mm/ARWorkspace/AREngine2/src/dlfeatures/tools/extract_features.py --jonson_tag hfnet --dlfeatures_type hfnet --dlfeatures_assets_path /home/mm/ARWorkspace/AREngine2/src/dlfeatures/native/assets_hfnet --image_path /data/largescene/qj_city_block_selected/images --image_ext .jpg --model_path /data/largescene/qj_city_block_selected/sparse/loc --feature_path /data/largescene/qj_city_block_selected/features/hfnet --image_subfolder_nums -1
+==================================
+ external.hfnet_matcher 
+ hfnet特征匹配，外部python命令 
+==================================
+python3 /home/mm/ARWorkspace/AREngine2/src/dlfeatures/tools/match_features_with_db_prior.py --database_file /data/largescene/qj_city_block_selected/bipath.db --feature_ext .npz --image_dir /data/largescene/qj_city_block_selected/images --feature_dir /data/largescene/qj_city_block_selected/features/hfnet/npz --match_list_path /data/largescene/qj_city_block_selected/features/hfnet/match_file.txt --use_ratio_test --ratio_test_values 0.8
+==================================
+ external.hfnet_matcher 
+ hfnet特征匹配，外部python命令 
+==================================
+Finish, check result, and press to continue
+==================================
+ colmap.hfnet_database 
+ 新建db，导入自定义特征 
+==================================
+{
+  "note": "\u65b0\u5efadb\uff0c\u5bfc\u5165\u81ea\u5b9a\u4e49\u7279\u5f81",
+  "database": "/data/largescene/qj_city_block_selected/loc_hfnet.db",
+  "image_path": "/data/largescene/qj_city_block_selected/images",
+  "feature_path": "/data/largescene/qj_city_block_selected/features/hfnet",
+  "output_model": "/data/largescene/qj_city_block_selected/sparse/hfnet_empty",
+  "colmap": {
+    "database_creator": {
+      "database_path": "/data/largescene/qj_city_block_selected/loc_hfnet.db"
+    },
+    "feature_importer": {
+      "database_path": "/data/largescene/qj_city_block_selected/loc_hfnet.db",
+      "ImageReader.single_camera_per_folder": 1,
+      "image_path": "/data/largescene/qj_city_block_selected/images",
+      "import_path": "/data/largescene/qj_city_block_selected/features/hfnet/txt"
+    }
+  }
+}
+Missing input_model.
+
+colmap database_creator --database_path /data/largescene/qj_city_block_selected/loc_hfnet.db
+colmap feature_importer --database_path /data/largescene/qj_city_block_selected/loc_hfnet.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/qj_city_block_selected/images --import_path /data/largescene/qj_city_block_selected/features/hfnet/txt
+==================================
+ custom.model_reorder 
+ 根据database中的图像顺序，筛选并重排model中的图像序号 
+==================================
+set_camera {(9, 13), (16, 16), (10, 4), (8, 12), (11, 5), (5, 2), (12, 6), (17, 17), (6, 3), (13, 7), (14, 14), (7, 11), (4, 1), (15, 15)}
+==================================
+ colmap.hfnet_model 
+ 制作给定特征的定位地图 
+==================================
+{
+  "note": "\u5236\u4f5c\u7ed9\u5b9a\u7279\u5f81\u7684\u5b9a\u4f4d\u5730\u56fe",
+  "database": "/data/largescene/qj_city_block_selected/loc_hfnet.db",
+  "image_path": "/data/largescene/qj_city_block_selected/images",
+  "input_model": "/data/largescene/qj_city_block_selected/sparse/hfnet_empty",
+  "output_model": "/data/largescene/qj_city_block_selected/sparse/hfnet_loc",
+  "feature_path": "/data/largescene/qj_city_block_selected/features/hfnet",
+  "match_file": "/data/largescene/qj_city_block_selected/features/hfnet/match_file.txt",
+  "colmap": {
+    "matches_importer": {
+      "database_path": "/data/largescene/qj_city_block_selected/loc_hfnet.db",
+      "match_list_path": "/data/largescene/qj_city_block_selected/features/hfnet/match_file.txt",
+      "match_type": "raw"
+    },
+    "point_triangulator": {
+      "database_path": "/data/largescene/qj_city_block_selected/loc_hfnet.db",
+      "image_path": "/data/largescene/qj_city_block_selected/images",
+      "input_path": "/data/largescene/qj_city_block_selected/sparse/hfnet_empty",
+      "output_path": "/data/largescene/qj_city_block_selected/sparse/hfnet_loc"
+    }
+  }
+}
+colmap matches_importer --database_path /data/largescene/qj_city_block_selected/loc_hfnet.db --match_list_path /data/largescene/qj_city_block_selected/features/hfnet/match_file.txt --match_type raw
+colmap point_triangulator --database_path /data/largescene/qj_city_block_selected/loc_hfnet.db --image_path /data/largescene/qj_city_block_selected/images --input_path /data/largescene/qj_city_block_selected/sparse/hfnet_empty --output_path /data/largescene/qj_city_block_selected/sparse/hfnet_loc
+==================================
+ copy.scene_net 
+ copy scene_net 
+==================================
+copy from  /home/mm/ARWorkspace/AREngine2/src/dlfeatures/native/  to  /data/largescene/qj_city_block_selected/Scene_qj_city_blockA_daynight/dlreloc/net_model/
+==================================
+ copy.scene_features 
+ copy scene_feature 
+==================================
+copy from  /data/largescene/qj_city_block_selected/features/hfnet/bin  to  /data/largescene/qj_city_block_selected/Scene_qj_city_blockA_daynight/dlreloc/features/
+==================================
+ copy.scene_colmap_model 
+ copy scene_colmap_model 
+==================================
+copy from  /data/largescene/qj_city_block_selected/sparse/hfnet_loc  to  /data/largescene/qj_city_block_selected/Scene_qj_city_blockA_daynight/dlreloc/colmap_model/
+Jump  copy.scene_images

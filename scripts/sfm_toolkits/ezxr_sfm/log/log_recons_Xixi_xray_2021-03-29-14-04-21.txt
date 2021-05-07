@@ -1,0 +1,47 @@
+{
+  "colmap_app_path": "colmap",
+  "model_proj_path": "/data/largescene/xiyou/sceneymt/",
+  "model_proj_image_path": "/data/largescene/xiyou/sceneymt/images"
+}
+{
+  "base": "SIMPLE_RADIAL",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ colmap.dense_reconstruction 
+ dense_reconstruction 
+==================================
+==================================
+ colmap.dense_reconstruction 
+ dense_reconstruction 
+==================================
+{
+  "note": "dense_reconstruction",
+  "database": "/data/largescene/xiyou/sceneymt//database/sceneymt.db",
+  "image_path": "/data/largescene/xiyou/sceneymt/images",
+  "dense_path": "/data/largescene/xiyou/sceneymt//dense/",
+  "input_model": "/data/largescene/xiyou/sceneymt//sparse/sceneymt_base_210326",
+  "output_model": "/data/largescene/xiyou/sceneymt//dense/ply",
+  "colmap": {
+    "image_undistorter": {
+      "image_path": "/data/largescene/xiyou/sceneymt/images",
+      "input_path": "/data/largescene/xiyou/sceneymt//sparse/sceneymt_base_210326",
+      "output_path": "/data/largescene/xiyou/sceneymt//dense/",
+      "max_image_size": 1500
+    },
+    "patch_match_stereo": {
+      "workspace_path": "/data/largescene/xiyou/sceneymt//dense/",
+      "PatchMatchStereo.filter_min_triangulation_angle": 3,
+      "PatchMatchStereo.window_radius": 5
+    },
+    "stereo_fusion": {
+      "workspace_path": "/data/largescene/xiyou/sceneymt//dense/",
+      "StereoFusion.min_num_pixels": 5,
+      "output_path": "/data/largescene/xiyou/sceneymt//dense/ply/sceneymt_geo_210326.ply"
+    }
+  }
+}
+colmap image_undistorter --image_path /data/largescene/xiyou/sceneymt/images --input_path /data/largescene/xiyou/sceneymt//sparse/sceneymt_base_210326 --output_path /data/largescene/xiyou/sceneymt//dense/ --max_image_size 1500
+colmap patch_match_stereo --workspace_path /data/largescene/xiyou/sceneymt//dense/ --PatchMatchStereo.filter_min_triangulation_angle 3 --PatchMatchStereo.window_radius 5
+colmap stereo_fusion --workspace_path /data/largescene/xiyou/sceneymt//dense/ --StereoFusion.min_num_pixels 5 --output_path /data/largescene/xiyou/sceneymt//dense/ply/sceneymt_geo_210326.ply

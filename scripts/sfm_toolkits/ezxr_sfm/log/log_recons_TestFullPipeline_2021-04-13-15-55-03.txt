@@ -1,0 +1,128 @@
+{
+  "note1": "\u91cd\u70b9\u914d\u7f6e\u4ee5\u4e0b\u53c2\u6570, scene_name\u662f\u6307scene_graph.json\u4e2d\u5b9a\u4e49\u7684\u573a\u666f\u540d\u79f0",
+  "colmap_app_path": "colmap",
+  "colmap_proj_path": "/home/mm/ARWorkspace/colmap",
+  "hfnet_proj_path": "/home/mm/ARWorkspace/AREngine2/src/dlfeatures/",
+  "model_proj_path": "/data/largescene/TestFullPipeline",
+  "videos_export_json_path": "/data/largescene/TestFullPipeline/exportTrainingData.json",
+  "scene_graph_name": "scene_graph",
+  "scene_name": "migutest",
+  "note2": "\u4ee5\u4e0b\u4e3a\u9ed8\u8ba4\u914d\u7f6e\uff0c\u8bf7\u914c\u60c5\u4fee\u6539\uff0cimage_ext\u76ee\u524d\u662f\u4e2a\u65e0\u6548\u53c2\u6570\uff0c\u4e0d\u7528\u7ba1\uff1bfeature_map_sample_interval\u662f\u6307\u5b9a\u4f4d\u5730\u56fe\u5236\u4f5c\u65f6\u6bcf\u4e2a\u5e8f\u5217\u7684\u91c7\u6837\u95f4\u9694",
+  "model_proj_image_path": "/data/largescene/TestFullPipeline/images",
+  "scene_proj_path": "/data/largescene/TestFullPipeline/dlreloc/",
+  "matcher_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/colmap_process/match_features_with_db_prior.py",
+  "image_ext": ".png",
+  "video_parse_interval": "40",
+  "feature_map_sample_interval": "2",
+  "dense_rec_max_image_size": "1000"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "OPENCV_FISHEYE",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ external.download_videos 
+ 从数据平台拉取原始视频数据 
+==================================
+==================================
+ external.videos_to_images 
+ 将视频文件解析为jpg图片 
+==================================
+==================================
+ external.base_reconstruction 
+ 按照2.0逻辑进行骨架重建 
+==================================
+==================================
+ external.hfnet_extractor 
+ hfnet特征提取，外部python命令 
+==================================
+==================================
+ external.hfnet_matcher 
+ hfnet特征匹配，外部python命令 
+==================================
+==================================
+ colmap.hfnet_database 
+ 新建db，导入自定义特征 
+==================================
+==================================
+ custom.model_reorder 
+ 根据database中的图像顺序，筛选并重排model中的图像序号 
+==================================
+==================================
+ colmap.hfnet_model 
+ 制作给定特征的定位地图 
+==================================
+==================================
+ copy.scene_net 
+ copy scene_net 
+==================================
+==================================
+ copy.scene_features 
+ copy scene_feature 
+==================================
+==================================
+ copy.scene_colmap_model 
+ copy scene_colmap_model 
+==================================
+==================================
+ colmap.dense_reconstruction 
+ dense_reconstruction 
+==================================
+check params, commands and status, Press to continue...
+==================================
+ external.download_videos 
+ 从数据平台拉取原始视频数据 
+==================================
+python3 /home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/colmap_process_loop_folders/download_raw_data.py --projPath /data/largescene/TestFullPipeline --routeJson /data/largescene/TestFullPipeline/exportTrainingData.json --maxTryTime 10
+==================================
+ external.videos_to_images 
+ 将视频文件解析为jpg图片 
+==================================
+python3 /home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/colmap_process_loop_folders/videos_to_images_with_lists.py --srcpath /data/largescene/TestFullPipeline/videos/ --dstpath /data/largescene/TestFullPipeline/images/ --smalldstpath /data/largescene/TestFullPipeline/images_ds/ --interval 40 --shortsize 640 --imageListSuffix '' --multithread
+==================================
+ external.base_reconstruction 
+ 按照2.0逻辑进行骨架重建 
+==================================
+python3 /home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/colmap_process_loop_folders/base_reconstruction.py --projPath /data/largescene/TestFullPipeline --sceneGraph scene_graph --useExhaustiveSFM --boardParam /home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml
+==================================
+ external.hfnet_extractor 
+ hfnet特征提取，外部python命令 
+==================================
+python3 /home/mm/ARWorkspace/AREngine2/src/dlfeatures//tools/extract_features.py --jonson_tag hfnet --dlfeatures_type hfnet --dlfeatures_assets_path /home/mm/ARWorkspace/AREngine2/src/dlfeatures//native/assets_hfnet --image_path /data/largescene/TestFullPipeline/images --image_ext .png --model_path /data/largescene/TestFullPipeline/sparse/migutest/0 --feature_path /data/largescene/TestFullPipeline/features/hfnet --image_subfolders_list_file /data/largescene/TestFullPipeline/config/allSeqs.txt --interval 2
+==================================
+ external.hfnet_matcher 
+ hfnet特征匹配，外部python命令 
+==================================
+python3 /home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/colmap_process/match_features_with_db_prior.py --database_file /data/largescene/TestFullPipeline/database/migutest.db --feature_ext .npz --image_dir /data/largescene/TestFullPipeline/images --feature_dir /data/largescene/TestFullPipeline/features/hfnet/npz --match_list_path /data/largescene/TestFullPipeline/features/hfnet/match_file.txt --use_ratio_test --ratio_test_values 0.8
+==================================
+ colmap.hfnet_database 
+ 新建db，导入自定义特征 
+==================================
+{
+  "note": "\u65b0\u5efadb\uff0c\u5bfc\u5165\u81ea\u5b9a\u4e49\u7279\u5f81",
+  "database": "/data/largescene/TestFullPipeline/database/loc_hfnet.db",
+  "image_path": "/data/largescene/TestFullPipeline/images",
+  "feature_path": "/data/largescene/TestFullPipeline/features/hfnet",
+  "output_model": "/data/largescene/TestFullPipeline/sparse/hfnet_empty",
+  "colmap": {
+    "database_creator": {
+      "database_path": "/data/largescene/TestFullPipeline/database/loc_hfnet.db"
+    },
+    "feature_importer": {
+      "database_path": "/data/largescene/TestFullPipeline/database/loc_hfnet.db",
+      "ImageReader.single_camera_per_folder": 1,
+      "image_path": "/data/largescene/TestFullPipeline/images",
+      "import_path": "/data/largescene/TestFullPipeline/features/hfnet/txt"
+    }
+  }
+}
+Missing input_model.
+
+colmap database_creator --database_path /data/largescene/TestFullPipeline/database/loc_hfnet.db
+colmap feature_importer --database_path /data/largescene/TestFullPipeline/database/loc_hfnet.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/TestFullPipeline/images --import_path /data/largescene/TestFullPipeline/features/hfnet/txt
+==================================
+ custom.model_reorder 
+ 根据database中的图像顺序，筛选并重排model中的图像序号 
+==================================
+failed to read  /data/largescene/TestFullPipeline/sparse/migutest/0/images.txt or bin

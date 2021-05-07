@@ -4,16 +4,18 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are met:
 //
-//     * Redistributions of source code must retain the above copyright
-//       notice, this list of conditions and the following disclaimer.
+//         * Redistributions of source code must retain the above copyright
+//             notice, this list of conditions and the following disclaimer.
 //
-//     * Redistributions in binary form must reproduce the above copyright
-//       notice, this list of conditions and the following disclaimer in the
-//       documentation and/or other materials provided with the distribution.
+//         * Redistributions in binary form must reproduce the above copyright
+//             notice, this list of conditions and the following disclaimer in
+//             the documentation and/or other materials provided with the
+//             distribution.
 //
-//     * Neither the name of ETH Zurich and UNC Chapel Hill nor the names of
-//       its contributors may be used to endorse or promote products derived
-//       from this software without specific prior written permission.
+//         * Neither the name of ETH Zurich and UNC Chapel Hill nor the names of
+//             its contributors may be used to endorse or promote products
+//             derived from this software without specific prior written
+//             permission.
 //
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 // AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -170,12 +172,12 @@ class StereoFusion : public Thread {
 
 // Write the visiblity information into a binary file of the following format:
 //
-//    <num_points : uint64_t>
-//    <num_visible_images_for_point1 : uint32_t>
-//    <point1_image_idx1 : uint32_t><point1_image_idx2 : uint32_t> ...
-//    <num_visible_images_for_point2 : uint32_t>
-//    <point2_image_idx2 : uint32_t><point2_image_idx2 : uint32_t> ...
-//    ...
+//        <num_points : uint64_t>
+//        <num_visible_images_for_point1 : uint32_t>
+//        <point1_image_idx1 : uint32_t><point1_image_idx2 : uint32_t> ...
+//        <num_visible_images_for_point2 : uint32_t>
+//        <point2_image_idx2 : uint32_t><point2_image_idx2 : uint32_t> ...
+//        ...
 //
 // Note that an image_idx in the case of the mvs::StereoFuser does not
 // correspond to the image_id of a Reconstruction, but the index of the image in

@@ -1,0 +1,106 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/data/largescene/shunyu/videos/",
+  "video_frame_path": "/data/largescene/shunyu/images",
+  "model_proj_path": "/data/largescene/shunyu/",
+  "model_proj_image_path": "/data/largescene/shunyu/images",
+  "colmap_voc_file": "/home/netease/ARWorkspace/colmap_ezxr/vocabulary/vocab_tree_flickr100K_words256K.bin"
+}
+{
+  "base": "SIMPLE_RADIAL",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+Jump  copy.loc_image
+==================================
+ copy.locdb 
+ copy database to loc.db 
+==================================
+Jump  custom.rmcharuco
+******Check Below Result****** colmap.image_reg
+==================================
+ colmap.image_reg 
+ registration loc images 
+==================================
+check params, commands and status, Press to continue...
+Jump  copy.loc_image
+==================================
+ copy.locdb 
+ copy database to loc.db 
+==================================
+copy from  /data/largescene/shunyu//database.db  to  /data/largescene/shunyu//loc.db
+Jump  custom.rmcharuco
+==================================
+ colmap.image_reg 
+ registration loc images 
+==================================
+{
+  "note": "registration loc images",
+  "database": "/data/largescene/shunyu//loc.db",
+  "image_path": "/data/largescene/shunyu/images",
+  "input_model": "/data/largescene/shunyu//sparse/geo",
+  "output_model": "/data/largescene/shunyu//sparse/loc",
+  "vocfile": "/home/netease/ARWorkspace/colmap_ezxr/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "colmap": {
+    "feature_extractor": {
+      "database_path": "/data/largescene/shunyu//loc.db",
+      "image_path": "/data/largescene/shunyu/images",
+      "ImageReader.single_camera_per_folder": 1,
+      "ImageReader.camera_model": "SIMPLE_RADIAL"
+    },
+    "exhaustive_matcher": {
+      "database_path": "/data/largescene/shunyu//loc.db"
+    },
+    "mapper": {
+      "database_path": "/data/largescene/shunyu//loc.db",
+      "image_path": "/data/largescene/shunyu/images",
+      "input_path": "/data/largescene/shunyu//sparse/geo",
+      "output_path": "/data/largescene/shunyu//sparse/loc",
+      "Mapper.abs_pose_min_num_inliers": 50
+    },
+    "model_aligner": {
+      "ref_images_path": "/data/largescene/shunyu//sparse/geo/geos.txt",
+      "input_path": "/data/largescene/shunyu//sparse/loc",
+      "output_path": "/data/largescene/shunyu//sparse/loc",
+      "robust_alignment_max_error": 0.05
+    }
+  },
+  "colmap_seqmatch": {
+    "note": "\u5f53\u573a\u666f\u76f8\u4f3c\u5ea6\u9ad8/\u5bf9\u901f\u5ea6\u8981\u6c42\u9ad8\u65f6\uff0c\u53ef\u4ee5\u4f7f\u7528sequential_matcher + vocab_tree_matcher \u66ff\u6362\u6389\u66b4\u529b\u5339\u914d, \u6216seq+loop_detect",
+    "feature_extractor": {
+      "database_path": "${database}",
+      "image_path": "${image_path}",
+      "ImageReader.single_camera_per_folder": 1,
+      "ImageReader.camera_model": "camera.loc"
+    },
+    "sequential_matcher": {
+      "database_path": "${database}",
+      "SiftMatching.min_num_inliers": 100,
+      "SequentialMatching.overlap": 10,
+      "SequentialMatching.loop_detection": 0,
+      "SequentialMatching.loop_detection_period": 10,
+      "SequentialMatching.vocab_tree_path": "${vocfile}"
+    },
+    "vocab_tree_matcher": {
+      "database_path": "${database}",
+      "SiftMatching.min_num_inliers": 200,
+      "VocabTreeMatching.vocab_tree_path": "${vocfile}"
+    },
+    "mapper": {
+      "database_path": "${database}",
+      "image_path": "${image_path}",
+      "output_path": "${output_model}",
+      "Mapper.abs_pose_min_num_inliers": 50
+    },
+    "model_aligner": {
+      "ref_images_path": "${input_model}/geos.txt",
+      "input_path": "${output_model}",
+      "output_path": "${output_model}",
+      "robust_alignment_max_error": 0.05
+    }
+  }
+}
+colmap feature_extractor --database_path /data/largescene/shunyu//loc.db --image_path /data/largescene/shunyu/images --ImageReader.single_camera_per_folder 1 --ImageReader.camera_model SIMPLE_RADIAL
+colmap exhaustive_matcher --database_path /data/largescene/shunyu//loc.db
+colmap mapper --database_path /data/largescene/shunyu//loc.db --image_path /data/largescene/shunyu/images --input_path /data/largescene/shunyu//sparse/geo --output_path /data/largescene/shunyu//sparse/loc --Mapper.abs_pose_min_num_inliers 50
+colmap model_aligner --ref_images_path /data/largescene/shunyu//sparse/geo/geos.txt --input_path /data/largescene/shunyu//sparse/loc --output_path /data/largescene/shunyu//sparse/loc --robust_alignment_max_error 0.05

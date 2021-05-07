@@ -1,0 +1,2 @@
+#python run_reconstruction.py /home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/data/local/base_recon_reg.json
+python run_reconstruction.py /home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/data/local/image_reg.json

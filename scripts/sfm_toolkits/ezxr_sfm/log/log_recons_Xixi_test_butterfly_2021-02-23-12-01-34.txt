@@ -1,0 +1,126 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/data/largescene/shunyu/videos/",
+  "video_frame_path": "/data/largescene/shunyu/images",
+  "model_proj_path": "/data/largescene/Chaoyangstreet",
+  "model_proj_image_path": "/data/largescene/shunyu/images",
+  "colmap_voc_file": "/home/netease/ARWorkspace/colmap_ezxr/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "SIMPLE_RADIAL",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+******Check Below Result****** colmap.base_reconstruction
+==================================
+ colmap.base_reconstruction 
+ reconstruct with base frames 骨架地图 
+==================================
+Jump  copy.charucoimage
+==================================
+ copy.db 
+ copy db to charuco.db 
+==================================
+==================================
+ custom.charuco_match_list 
+ generate charuco match list, match charuco folders only with base images 
+==================================
+Jump  colmap.charuco_registration
+******Check Below Result****** custom.charuco_detect
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+Jump  custom.create_gravity_list
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+==================================
+ colmap.makegeo 
+ produce geo model with only base images(for dense reconstruction) 
+==================================
+check params, commands and status, Press to continue...
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+-----------command note-----------
+extract_image_from_video.py  /data/largescene/shunyu/videos/   /data/largescene/shunyu/images   True   15   -1   False   False   1280   720
+----------------------------------
+Open New Thread, Valid_thread =  4
+Open New Thread, Valid_thread =  3
+Open New Thread, Valid_thread =  2
+Open New Thread, Valid_thread =  1
+start video2image  /data/largescene/shunyu/videos/base/VID_20210223_114619.mp4 , frames =  1266.0
+start video2image  /data/largescene/shunyu/videos/base/VID_20210223_114518.mp4 , frames =  492.0
+start video2image  /data/largescene/shunyu/videos/base/VID_20210223_114727.mp4 , frames =  1052.0
+start video2image  /data/largescene/shunyu/videos/base/VID_20210223_114859.mp4 , frames =  754.0
+finish video2image  /data/largescene/shunyu/videos/base/VID_20210223_114518.mp4
+Valid_thread =  2
+finished / total = 1  /  4
+finish video2image  /data/largescene/shunyu/videos/base/VID_20210223_114859.mp4
+Valid_thread =  3
+finished / total = 2  /  4
+finish video2image  /data/largescene/shunyu/videos/base/VID_20210223_114727.mp4
+Valid_thread =  4
+finished / total = 3  /  4
+finish video2image  /data/largescene/shunyu/videos/base/VID_20210223_114619.mp4
+Valid_thread =  5
+finished / total = 4  /  4
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+==================================
+ colmap.base_reconstruction 
+ reconstruct with base frames 骨架地图 
+==================================
+{
+  "note": "reconstruct with base frames \u9aa8\u67b6\u5730\u56fe",
+  "database": "/data/largescene/Chaoyangstreet/database.db",
+  "image_path": "/data/largescene/shunyu/images",
+  "input_model": "",
+  "output_model": "/data/largescene/Chaoyangstreet/sparse/org",
+  "colmap": {
+    "feature_extractor": {
+      "database_path": "/data/largescene/Chaoyangstreet/database.db",
+      "image_path": "/data/largescene/shunyu/images",
+      "ImageReader.single_camera_per_folder": 1,
+      "ImageReader.camera_model": "SIMPLE_RADIAL"
+    },
+    "exhaustive_matcher": {
+      "database_path": "/data/largescene/Chaoyangstreet/database.db",
+      "SiftMatching.min_num_inliers": 100
+    },
+    "mapper": {
+      "database_path": "/data/largescene/Chaoyangstreet/database.db",
+      "image_path": "/data/largescene/shunyu/images",
+      "output_path": "/data/largescene/Chaoyangstreet/sparse/org",
+      "Mapper.abs_pose_min_num_inliers": 50
+    }
+  }
+}
+colmap feature_extractor --database_path /data/largescene/Chaoyangstreet/database.db --image_path /data/largescene/shunyu/images --ImageReader.single_camera_per_folder 1 --ImageReader.camera_model SIMPLE_RADIAL
+colmap exhaustive_matcher --database_path /data/largescene/Chaoyangstreet/database.db --SiftMatching.min_num_inliers 100
+colmap mapper --database_path /data/largescene/Chaoyangstreet/database.db --image_path /data/largescene/shunyu/images --output_path /data/largescene/Chaoyangstreet/sparse/org --Mapper.abs_pose_min_num_inliers 50
+==================================
+ colmap.base_reconstruction 
+ reconstruct with base frames 骨架地图 
+==================================
+Finish, check result, and press to continue
+Jump  copy.charucoimage
+==================================
+ copy.db 
+ copy db to charuco.db 
+==================================
+copy from  /data/largescene/Chaoyangstreet/database.db  to  /data/largescene/Chaoyangstreet/charuco.db
+==================================
+ custom.charuco_match_list 
+ generate charuco match list, match charuco folders only with base images 
+==================================

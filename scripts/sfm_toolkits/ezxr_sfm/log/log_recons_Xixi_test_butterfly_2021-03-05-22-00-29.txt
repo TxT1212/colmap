@@ -1,0 +1,79 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/media/netease/Storage/LargeScene/Scene/XixiWetland/raw_cam/test_butterfly/videos",
+  "video_frame_path": "/data/largescene/guobo/frames",
+  "model_proj_path": "/data/largescene/guobo/",
+  "model_proj_image_path": "/data/largescene/guobo/images",
+  "colmap_voc_file": "/home/mm/ARWorkspace/colmap/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "OPENCV_FISHEYE",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+==================================
+ custom.create_recons_proj 
+ copy images to colmap_proj_path 
+==================================
+==================================
+ copy.base_image 
+ copy base images to colmap_proj_path 
+==================================
+==================================
+ colmap.base_reconstruction 
+ reconstruct with base frames 骨架地图 
+==================================
+==================================
+ copy.charucoimage 
+ copy charuco images to colmap_proj_path 
+==================================
+==================================
+ copy.db 
+ copy db to charuco.db 
+==================================
+==================================
+ custom.charuco_match_list 
+ generate charuco match list, match charuco folders only with base images 
+==================================
+==================================
+ colmap.charuco_registration 
+ register charuco images 标定板图像注册 
+==================================
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+Jump  custom.create_gravity_list
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+==================================
+ colmap.makegeo 
+ produce geo model with only base images(for dense reconstruction) 
+==================================
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+-----------command note-----------
+extract_image_from_video.py  /media/netease/Storage/LargeScene/Scene/XixiWetland/raw_cam/test_butterfly/videos   /data/largescene/guobo/frames   True   30   -1   False   False   1280   720
+----------------------------------
+源文件夹不存在
+==================================
+ custom.create_recons_proj 
+ copy images to colmap_proj_path 
+==================================
+----------------------------------
+create_recons_proj  /data/largescene/guobo/   /data/largescene/guobo/images
+==================================
+==================================
+ copy.base_image 
+ copy base images to colmap_proj_path 
+==================================
+copy from  /data/largescene/guobo/frames/base  to  /data/largescene/guobo/images/base

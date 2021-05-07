@@ -1,0 +1,363 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/media/netease/Storage/LargeScene/Scene/XixiWetland/raw_cam/test_butterfly/videos",
+  "video_frame_path": "/media/mm/RichMan/hzgb/images_back",
+  "model_proj_path": "/media/mm/RichMan/hzgb/",
+  "model_proj_image_path": "/media/mm/RichMan/hzgb/images",
+  "colmap_voc_file": "/home/mm/ARWorkspace/colmap/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "OPENCV_FISHEYE",
+  "loc": "SIMPLE_RADIAL"
+}
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+==================================
+ colmap.base_reconstruction 
+ reconstruct with base frames 骨架地图 
+==================================
+==================================
+ copy.charucoimage 
+ copy charuco images to colmap_proj_path 
+==================================
+==================================
+ copy.db 
+ copy db to charuco.db 
+==================================
+==================================
+ custom.charuco_match_list 
+ generate charuco match list, match charuco folders only with base images 
+==================================
+==================================
+ colmap.charuco_registration 
+ register charuco images 标定板图像注册 
+==================================
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+==================================
+ custom.create_gravity_list 
+ 生成需要删除的imagelist，仅保留base/gravity文件夹中的内容 方便进行重力对齐 
+==================================
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+==================================
+ colmap.makegeo 
+ produce geo model with only base images(for dense reconstruction) 
+==================================
+check params, commands and status, Press to continue...
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+==================================
+ colmap.base_reconstruction 
+ reconstruct with base frames 骨架地图 
+==================================
+{
+  "note": "reconstruct with base frames \u9aa8\u67b6\u5730\u56fe",
+  "database": "/media/mm/RichMan/hzgb//database.db",
+  "image_path": "/media/mm/RichMan/hzgb/images",
+  "input_model": "",
+  "output_model": "/media/mm/RichMan/hzgb//sparse/org",
+  "colmap": {
+    "feature_extractor": {
+      "database_path": "/media/mm/RichMan/hzgb//database.db",
+      "image_path": "/media/mm/RichMan/hzgb/images",
+      "ImageReader.single_camera_per_folder": 1,
+      "ImageReader.camera_model": "OPENCV_FISHEYE"
+    },
+    "exhaustive_matcher": {
+      "database_path": "/media/mm/RichMan/hzgb//database.db",
+      "SiftMatching.min_num_inliers": 100
+    },
+    "mapper": {
+      "database_path": "/media/mm/RichMan/hzgb//database.db",
+      "image_path": "/media/mm/RichMan/hzgb/images",
+      "output_path": "/media/mm/RichMan/hzgb//sparse/org",
+      "Mapper.abs_pose_min_num_inliers": 50
+    }
+  }
+}
+colmap feature_extractor --database_path /media/mm/RichMan/hzgb//database.db --image_path /media/mm/RichMan/hzgb/images --ImageReader.single_camera_per_folder 1 --ImageReader.camera_model OPENCV_FISHEYE
+colmap exhaustive_matcher --database_path /media/mm/RichMan/hzgb//database.db --SiftMatching.min_num_inliers 100
+colmap mapper --database_path /media/mm/RichMan/hzgb//database.db --image_path /media/mm/RichMan/hzgb/images --output_path /media/mm/RichMan/hzgb//sparse/org --Mapper.abs_pose_min_num_inliers 50
+==================================
+ copy.charucoimage 
+ copy charuco images to colmap_proj_path 
+==================================
+copy from  /media/mm/RichMan/hzgb/images_back/charuco  to  /media/mm/RichMan/hzgb/images/charuco
+==================================
+ copy.db 
+ copy db to charuco.db 
+==================================
+copy from  /media/mm/RichMan/hzgb//database.db  to  /media/mm/RichMan/hzgb//charuco.db
+==================================
+ custom.charuco_match_list 
+ generate charuco match list, match charuco folders only with base images 
+==================================
+==================================
+ colmap.charuco_registration 
+ register charuco images 标定板图像注册 
+==================================
+{
+  "note": "register charuco images \u6807\u5b9a\u677f\u56fe\u50cf\u6ce8\u518c",
+  "database": "/media/mm/RichMan/hzgb//charuco.db",
+  "image_path": "/media/mm/RichMan/hzgb/images",
+  "input_model": "/media/mm/RichMan/hzgb//sparse/org",
+  "output_model": "/media/mm/RichMan/hzgb//sparse/charuco",
+  "match_file": "/media/mm/RichMan/hzgb//charucos/matchlist.txt",
+  "colmap": {
+    "feature_extractor": {
+      "database_path": "/media/mm/RichMan/hzgb//charuco.db",
+      "image_path": "/media/mm/RichMan/hzgb/images",
+      "ImageReader.single_camera_per_folder": 1,
+      "ImageReader.camera_model": "OPENCV_FISHEYE"
+    },
+    "matches_importer": {
+      "database_path": "/media/mm/RichMan/hzgb//charuco.db",
+      "match_list_path": "/media/mm/RichMan/hzgb//charucos/matchlist.txt",
+      "SiftMatching.min_num_inliers": 100
+    },
+    "mapper": {
+      "database_path": "/media/mm/RichMan/hzgb//charuco.db",
+      "image_path": "/media/mm/RichMan/hzgb/images",
+      "input_path": "/media/mm/RichMan/hzgb//sparse/org",
+      "output_path": "/media/mm/RichMan/hzgb//sparse/charuco",
+      "Mapper.abs_pose_min_num_inliers": 50
+    }
+  }
+}
+colmap feature_extractor --database_path /media/mm/RichMan/hzgb//charuco.db --image_path /media/mm/RichMan/hzgb/images --ImageReader.single_camera_per_folder 1 --ImageReader.camera_model OPENCV_FISHEYE
+colmap matches_importer --database_path /media/mm/RichMan/hzgb//charuco.db --match_list_path /media/mm/RichMan/hzgb//charucos/matchlist.txt --SiftMatching.min_num_inliers 100
+colmap mapper --database_path /media/mm/RichMan/hzgb//charuco.db --image_path /media/mm/RichMan/hzgb/images --input_path /media/mm/RichMan/hzgb//sparse/org --output_path /media/mm/RichMan/hzgb//sparse/charuco --Mapper.abs_pose_min_num_inliers 50
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+-------charuco detection-------
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (35, 1, 2) charuco corners
+detect  (8, 1, 2) charuco corners
+detect  (7, 1, 2) charuco corners
+detect  (19, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (15, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (35, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (13, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (3, 1, 2) charuco corners
+detect  (4, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+colmap database_creator --database_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_001.db
+colmap feature_importer --database_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_001.db --ImageReader.single_camera_per_folder 1 --image_path /media/mm/RichMan/hzgb/images --import_path /media/mm/RichMan/hzgb/charucos/detection/
+set_camera {(6, 6)}
+colmap matches_importer --database_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_001.db --match_list_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_001_match.txt --match_type raw
+colmap point_triangulator --database_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_001.db --image_path /media/mm/RichMan/hzgb/images --input_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_001_model/ --output_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_001_model/ --Mapper.tri_ignore_two_view_tracks 0
+35   0 [  2.18076876   0.47291542   0.8104109  252.        ]
+34   1 [  2.18947073   0.47004929   0.78366054 251.        ]
+33   2 [  2.19420088   0.46562009   0.75797462 250.        ]
+32   3 [  2.20359238   0.46322067   0.7316419  249.        ]
+31   4 [  2.21262121   0.46066858   0.7053716  248.        ]
+30   5 [  2.18311332   0.44449177   0.81397707 241.        ]
+29   6 [  2.19200082   0.44184322   0.78730967 240.        ]
+28   7 [  2.19735266   0.43772787   0.76130731 239.        ]
+27   8 [  2.20611205   0.43521061   0.73496577 238.        ]
+26   9 [  2.2150588    0.43244836   0.70856094 237.        ]
+25   10 [  2.18590985   0.41635287   0.81787128 230.        ]
+24   11 [  2.19557624   0.41400139   0.79112619 229.        ]
+23   12 [  2.20025806   0.40985685   0.76504309 228.        ]
+22   13 [  2.21308284   0.40815949   0.73784693 227.        ]
+21   14 [  2.22225415   0.40663089   0.71100856 226.        ]
+20   15 [  2.18921353   0.38812104   0.82184468 219.        ]
+19   16 [  2.19907235   0.38581929   0.79507068 218.        ]
+18   17 [  2.20818959   0.38295058   0.76831513 217.        ]
+17   18 [  2.21618121   0.38050237   0.74153325 216.        ]
+6   19 [  2.23478492   0.32175352   0.72356752 193.        ]
+5   20 [  2.20500924   0.30509681   0.83501477 186.        ]
+4   21 [  2.21365631   0.3022762    0.80811791 185.        ]
+3   22 [  2.22295218   0.29951556   0.78142101 184.        ]
+1   23 [  2.24009217   0.29387511   0.72806074 182.        ]
+2   24 [  2.23096986   0.29675315   0.75457413 183.        ]
+7   25 [  2.225703     0.32451749   0.75003846 194.        ]
+8   26 [  2.21741194   0.32725116   0.77689502 195.        ]
+9   27 [  2.20842254   0.330012     0.80367003 196.        ]
+10   28 [  2.19941892   0.33281115   0.83045961 197.        ]
+11   29 [  2.23005961   0.34973298   0.71923274 204.        ]
+12   30 [  2.22073156   0.3524813    0.74566813 205.        ]
+13   31 [  2.21244731   0.35513747   0.7725445  206.        ]
+14   32 [  2.2033456    0.3578455    0.79929955 207.        ]
+15   33 [  2.19445397   0.36069452   0.82606193 208.        ]
+16   34 [  2.22587807   0.37781083   0.71500872 215.        ]
+create_charuco_corners:  24 x 12
+square_length:  9.9
+marker_length:  7.4
+charuco board size =  24 x 12
+we split it into =  3 x 2
+split charuco board size =  8 x 6
+----------------------------charuco match----------------------------
+split_charuco_board  1_2 :
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (35, 1, 2) charuco corners
+detect  (31, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (34, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (28, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (12, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (33, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (2, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (28, 1, 2) charuco corners
+detect  (24, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+detect  (16, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+colmap database_creator --database_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_002.db
+colmap feature_importer --database_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_002.db --ImageReader.single_camera_per_folder 1 --image_path /media/mm/RichMan/hzgb/images --import_path /media/mm/RichMan/hzgb/charucos/detection/
+set_camera {(7, 7), (6, 6)}
+colmap matches_importer --database_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_002.db --match_list_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_002_match.txt --match_type raw
+colmap point_triangulator --database_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_002.db --image_path /media/mm/RichMan/hzgb/images --input_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_002_model/ --output_path /media/mm/RichMan/hzgb/charucos/detection/charuco/hzgb_f4_r3_002_model/ --Mapper.tri_ignore_two_view_tracks 0
+35   0 [-2.08369502e-01  2.86494553e-01 -1.12642713e+00  2.52000000e+02]
+34   1 [-2.30143513e-01  2.84981760e-01 -1.14438138e+00  2.51000000e+02]
+33   2 [ -0.25161019   0.28388139  -1.16295225 250.        ]
+32   3 [ -0.27334183   0.28237883  -1.18073934 249.        ]
+31   4 [ -0.29469897   0.28110841  -1.19919059 248.        ]
+30   5 [-2.04988845e-01  2.58387211e-01 -1.12801818e+00  2.41000000e+02]
+29   6 [-2.26753027e-01  2.57160251e-01 -1.14620581e+00  2.40000000e+02]
+28   7 [ -0.24843887   0.25571379  -1.16413265 239.        ]
+27   8 [ -0.27005863   0.25430192  -1.18232091 238.        ]
+26   9 [ -0.29139632   0.25310384  -1.20071938 237.        ]
+25   10 [-2.01082156e-01  2.30681588e-01 -1.13039938e+00  2.30000000e+02]
+24   11 [-2.22978540e-01  2.29103056e-01 -1.14803048e+00  2.29000000e+02]
+23   12 [-2.44662202e-01  2.27821492e-01 -1.16637076e+00  2.28000000e+02]
+22   13 [-2.66245555e-01  2.26291141e-01 -1.18433663e+00  2.27000000e+02]
+21   14 [-2.87658718e-01  2.25089285e-01 -1.20270908e+00  2.26000000e+02]
+20   15 [-1.96856148e-01  2.02630193e-01 -1.13281191e+00  2.19000000e+02]
+19   16 [-2.18752838e-01  2.01317540e-01 -1.15084357e+00  2.18000000e+02]
+18   17 [-2.40410570e-01  1.99899458e-01 -1.16898249e+00  2.17000000e+02]
+17   18 [-2.62063014e-01  1.98505812e-01 -1.18699543e+00  2.16000000e+02]
+6   19 [-2.73926231e-01  1.41962691e-01 -1.21240324e+00  1.93000000e+02]
+5   20 [-1.81673728e-01  1.19991450e-01 -1.14437170e+00  1.86000000e+02]
+4   21 [-2.03538742e-01  1.18818886e-01 -1.16228194e+00  1.85000000e+02]
+3   22 [-2.25314821e-01  1.17338952e-01 -1.18030570e+00  1.84000000e+02]
+1   23 [-2.68577565e-01  1.14573885e-01 -1.21665171e+00  1.82000000e+02]
+2   24 [-2.47021632e-01  1.15917972e-01 -1.19840221e+00  1.83000000e+02]
+7   25 [-2.52296479e-01  1.43349067e-01 -1.19423230e+00  1.94000000e+02]
+8   26 [-2.30657853e-01  1.44655264e-01 -1.17621287e+00  1.95000000e+02]
+9   27 [-2.08861632e-01  1.46105215e-01 -1.15821379e+00  1.96000000e+02]
+10   28 [-1.87088099e-01  1.47439375e-01 -1.13994689e+00  1.97000000e+02]
+11   29 [-2.78923311e-01  1.69549407e-01 -1.20874021e+00  2.04000000e+02]
+12   30 [-2.57354662e-01  1.70850914e-01 -1.19043951e+00  2.05000000e+02]
+13   31 [-2.35763592e-01  1.72228384e-01 -1.17234196e+00  2.06000000e+02]
+14   32 [-2.13974468e-01  1.73657869e-01 -1.15429342e+00  2.07000000e+02]
+15   33 [-1.92174625e-01  1.74975033e-01 -1.13611260e+00  2.08000000e+02]
+16   34 [-2.83631214e-01  1.97125522e-01 -1.20531016e+00  2.15000000e+02]
+create_charuco_corners:  24 x 12
+square_length:  9.9
+marker_length:  7.4
+charuco board size =  24 x 12
+we split it into =  3 x 2
+split charuco board size =  8 x 6
+----------------------------charuco match----------------------------
+split_charuco_board  1_2 :
+optimizing...
+`xtol` termination condition is satisfied.
+Function evaluations 21300, initial cost 1.9912e-01, final cost 4.3637e-02, first-order optimality 8.24e-03.
+opted scale =  3.4922217029372833
+board id = 1_2, mean error(unit:m) = 0.004620732057923086, point number = 35
+
+board id = 1_2, mean error(unit:m) = 0.003819922116339919, point number = 35
+
+opted scale = 3.4922217029372833
+
+==================================
+ custom.create_gravity_list 
+ 生成需要删除的imagelist，仅保留base/gravity文件夹中的内容 方便进行重力对齐 
+==================================
+write image list to  /media/mm/RichMan/hzgb//gravity_delete_list.txt
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+{
+  "note": "\u4ec5\u7528base/gravity\u751f\u6210model\uff0calign to gravity(run export geo to get gravityz)",
+  "database": "/media/mm/RichMan/hzgb//charuco.db",
+  "image_path": "/media/mm/RichMan/hzgb/images",
+  "input_model": "/media/mm/RichMan/hzgb//sparse/charuco_rescale",
+  "gravity_model": "/media/mm/RichMan/hzgb//sparse/charuco_rescale_select_gravity",
+  "gravity_list": "/media/mm/RichMan/hzgb//gravity_delete_list.txt",
+  "output_model": "/media/mm/RichMan/hzgb//sparse/gravity",
+  "colmap": {
+    "image_deleter": {
+      "input_path": "/media/mm/RichMan/hzgb//sparse/charuco_rescale",
+      "output_path": "/media/mm/RichMan/hzgb//sparse/charuco_rescale_select_gravity",
+      "image_names_path": "/media/mm/RichMan/hzgb//gravity_delete_list.txt"
+    },
+    "model_orientation_aligner": {
+      "image_path": "/media/mm/RichMan/hzgb/images",
+      "input_path": "/media/mm/RichMan/hzgb//sparse/charuco_rescale_select_gravity",
+      "output_path": "/media/mm/RichMan/hzgb//sparse/gravity",
+      "max_image_size": 1024
+    }
+  }
+}
+colmap image_deleter --input_path /media/mm/RichMan/hzgb//sparse/charuco_rescale --output_path /media/mm/RichMan/hzgb//sparse/charuco_rescale_select_gravity --image_names_path /media/mm/RichMan/hzgb//gravity_delete_list.txt
+colmap model_orientation_aligner --image_path /media/mm/RichMan/hzgb/images --input_path /media/mm/RichMan/hzgb//sparse/charuco_rescale_select_gravity --output_path /media/mm/RichMan/hzgb//sparse/gravity --max_image_size 1024
+==================================
+ colmap.makegeo 
+ produce geo model with only base images(for dense reconstruction) 
+==================================
+{
+  "note": "produce geo model with only base images(for dense reconstruction)",
+  "ref_images_txt": "/media/mm/RichMan/hzgb//sparse/gravity/geos.txt",
+  "database": "/media/mm/RichMan/hzgb//database.db",
+  "image_path": "/media/mm/RichMan/hzgb/images",
+  "input_model": "/media/mm/RichMan/hzgb//sparse/org",
+  "output_model": "/media/mm/RichMan/hzgb//sparse/geo",
+  "colmap": {
+    "model_aligner": {
+      "ref_images_path": "/media/mm/RichMan/hzgb//sparse/gravity/geos.txt",
+      "input_path": "/media/mm/RichMan/hzgb//sparse/org",
+      "output_path": "/media/mm/RichMan/hzgb//sparse/geo",
+      "robust_alignment_max_error": 0.05
+    }
+  }
+}
+colmap model_aligner --ref_images_path /media/mm/RichMan/hzgb//sparse/gravity/geos.txt --input_path /media/mm/RichMan/hzgb//sparse/org --output_path /media/mm/RichMan/hzgb//sparse/geo --robust_alignment_max_error 0.05

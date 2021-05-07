@@ -1,0 +1,555 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/media/netease/Storage/LargeScene/Scene/XixiWetland/raw_cam/test_butterfly/videos",
+  "video_frame_path": "/data/largescene/guobo/frames",
+  "model_proj_path": "/data/largescene/guobo/",
+  "model_proj_image_path": "/data/largescene/guobo/images",
+  "colmap_voc_file": "/home/mm/ARWorkspace/colmap/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "OPENCV_FISHEYE",
+  "loc": "SIMPLE_RADIAL"
+}
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+Jump  colmap.base_reconstruction
+Jump  copy.charucoimage
+==================================
+ copy.db 
+ copy db to charuco.db 
+==================================
+==================================
+ custom.charuco_match_list 
+ generate charuco match list, match charuco folders only with base images 
+==================================
+==================================
+ colmap.charuco_registration 
+ register charuco images 标定板图像注册  acc with image_list 
+==================================
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+Jump  custom.create_gravity_list
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+==================================
+ colmap.makegeo 
+ produce geo model with only base images(for dense reconstruction) 
+==================================
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+Jump  colmap.base_reconstruction
+Jump  copy.charucoimage
+==================================
+ copy.db 
+ copy db to charuco.db 
+==================================
+copy from  /data/largescene/guobo//database.db  to  /data/largescene/guobo//charuco.db
+==================================
+ custom.charuco_match_list 
+ generate charuco match list, match charuco folders only with base images 
+==================================
+==================================
+ colmap.charuco_registration 
+ register charuco images 标定板图像注册  acc with image_list 
+==================================
+{
+  "note": "register charuco images \u6807\u5b9a\u677f\u56fe\u50cf\u6ce8\u518c  acc with image_list",
+  "database": "/data/largescene/guobo//charuco.db",
+  "image_path": "/data/largescene/guobo/images",
+  "input_model": "/data/largescene/guobo//sparse/org",
+  "output_model": "/data/largescene/guobo//sparse/charuco",
+  "match_file": "/data/largescene/guobo//charucos/matchlist.txt",
+  "colmap": {
+    "feature_extractor": {
+      "database_path": "/data/largescene/guobo//charuco.db",
+      "image_path": "/data/largescene/guobo/images",
+      "ImageReader.single_camera_per_folder": 1,
+      "ImageReader.default_focal_length_factor": 0.45,
+      "ImageReader.camera_model": "OPENCV_FISHEYE"
+    },
+    "matches_importer": {
+      "database_path": "/data/largescene/guobo//charuco.db",
+      "match_list_path": "/data/largescene/guobo//charucos/matchlist.txt",
+      "SiftMatching.min_num_inliers": 100
+    },
+    "mapper": {
+      "database_path": "/data/largescene/guobo//charuco.db",
+      "image_path": "/data/largescene/guobo/images",
+      "input_path": "/data/largescene/guobo//sparse/org",
+      "output_path": "/data/largescene/guobo//sparse/charuco",
+      "Mapper.fix_existing_images": 1,
+      "Mapper.abs_pose_min_num_inliers": 50
+    }
+  }
+}
+colmap feature_extractor --database_path /data/largescene/guobo//charuco.db --image_path /data/largescene/guobo/images --ImageReader.single_camera_per_folder 1 --ImageReader.default_focal_length_factor 0.45 --ImageReader.camera_model OPENCV_FISHEYE
+colmap matches_importer --database_path /data/largescene/guobo//charuco.db --match_list_path /data/largescene/guobo//charucos/matchlist.txt --SiftMatching.min_num_inliers 100
+colmap mapper --database_path /data/largescene/guobo//charuco.db --image_path /data/largescene/guobo/images --input_path /data/largescene/guobo//sparse/org --output_path /data/largescene/guobo//sparse/charuco --Mapper.fix_existing_images 1 --Mapper.abs_pose_min_num_inliers 50
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+-------charuco detection-------
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (35, 1, 2) charuco corners
+detect  (8, 1, 2) charuco corners
+detect  (7, 1, 2) charuco corners
+detect  (19, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (15, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (35, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (13, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (3, 1, 2) charuco corners
+detect  (4, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+colmap database_creator --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_001.db
+colmap feature_importer --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_001.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/guobo/images --import_path /data/largescene/guobo/charucos/detection/
+set_camera {(23, 27)}
+colmap matches_importer --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_001.db --match_list_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_001_match.txt --match_type raw
+colmap point_triangulator --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_001.db --image_path /data/largescene/guobo/images --input_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_001_model/ --output_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_001_model/ --Mapper.tri_ignore_two_view_tracks 0
+35   0 [  4.26977465  -0.85950237   1.45174611 252.        ]
+34   1 [  4.27570464  -0.85901858   1.44579522 251.        ]
+33   2 [  4.2818425   -0.85845974   1.4400226  250.        ]
+32   3 [  4.2879091   -0.85790929   1.43427277 249.        ]
+31   4 [  4.29396015  -0.85723176   1.42842671 248.        ]
+30   5 [  4.27076155  -0.86800645   1.45194493 241.        ]
+29   6 [  4.27672331  -0.86746129   1.44604867 240.        ]
+28   7 [  4.28276202  -0.8669739    1.44018193 239.        ]
+27   8 [  4.28867457  -0.86630328   1.43424981 238.        ]
+26   9 [  4.29485911  -0.86578941   1.42852671 237.        ]
+25   10 [  4.27181519  -0.87643829   1.45229999 230.        ]
+24   11 [  4.27797308  -0.87581008   1.44649255 229.        ]
+23   12 [  4.28360029  -0.87532299   1.44030629 228.        ]
+22   13 [  4.28970506  -0.87479146   1.43453251 227.        ]
+21   14 [  4.29591805  -0.87425737   1.4288468  226.        ]
+20   15 [  4.27299422  -0.88489682   1.4527394  219.        ]
+19   16 [  4.27920539  -0.88425304   1.44695195 218.        ]
+18   17 [  4.28524986  -0.88376844   1.44105638 217.        ]
+17   18 [  4.29097434  -0.88326026   1.43502826 216.        ]
+6   19 [  4.30000201  -0.89954146   1.43062958 193.        ]
+5   20 [  4.27785193  -0.90980765   1.4552225  186.        ]
+4   21 [  4.28379014  -0.90930702   1.4492297  185.        ]
+3   22 [  4.28987096  -0.90879279   1.44337701 184.        ]
+1   23 [  4.30163265  -0.90790343   1.43148384 182.        ]
+2   24 [  4.2956316   -0.90836464   1.43732258 183.        ]
+7   25 [  4.2940223   -0.90003243   1.4364588  194.        ]
+8   26 [  4.28819079  -0.9004719    1.44247722 195.        ]
+9   27 [  4.28218076  -0.9009873    1.44839149 196.        ]
+10   28 [  4.27616293  -0.90149281   1.45430716 197.        ]
+11   29 [  4.29850055  -0.89115201   1.4298978  204.        ]
+12   30 [  4.29246263  -0.89164647   1.43568462 205.        ]
+13   31 [  4.28663419  -0.89210973   1.4417053  206.        ]
+14   32 [  4.28059863  -0.8926411    1.44759703 207.        ]
+15   33 [  4.27461264  -0.89313005   1.45352234 208.        ]
+16   34 [  4.29712467  -0.88273399   1.42927079 215.        ]
+create_charuco_corners:  24 x 12
+square_length:  9.9
+marker_length:  7.4
+charuco board size =  24 x 12
+we split it into =  3 x 2
+split charuco board size =  8 x 6
+----------------------------charuco match----------------------------
+split_charuco_board  1_2 :
+detect  (3, 1, 2) charuco corners
+detect  (5, 1, 2) charuco corners
+detect  (17, 1, 2) charuco corners
+detect  (32, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (30, 1, 2) charuco corners
+detect  (17, 1, 2) charuco corners
+detect  (4, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+colmap database_creator --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f2_out_r3_103.db
+colmap feature_importer --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f2_out_r3_103.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/guobo/images --import_path /data/largescene/guobo/charucos/detection/
+set_camera {(23, 27), (20, 24)}
+colmap matches_importer --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f2_out_r3_103.db --match_list_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f2_out_r3_103_match.txt --match_type raw
+colmap point_triangulator --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f2_out_r3_103.db --image_path /data/largescene/guobo/images --input_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f2_out_r3_103_model/ --output_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f2_out_r3_103_model/ --Mapper.tri_ignore_two_view_tracks 0
+35   0 [ -3.96500198   0.73672753  -1.83334439 252.        ]
+34   1 [ -3.95657447   0.73699637  -1.8321976  251.        ]
+33   2 [ -3.96464578   0.72829176  -1.83343429 241.        ]
+32   3 [ -3.94826901   0.73718421  -1.83088094 250.        ]
+31   4 [ -3.93990076   0.73749267  -1.82952351 249.        ]
+30   5 [ -3.93161255   0.73770516  -1.82807904 248.        ]
+29   6 [ -3.95631269   0.72847134  -1.83233022 240.        ]
+28   7 [ -3.94789327   0.72876986  -1.83104099 239.        ]
+27   8 [ -3.96444496   0.71974206  -1.83337627 230.        ]
+26   9 [ -3.9559898    0.72007685  -1.83207869 229.        ]
+25   10 [ -3.94765908   0.72026716  -1.83095439 228.        ]
+24   11 [ -3.96414285   0.71132567  -1.83291439 219.        ]
+23   12 [ -3.95578929   0.71155583  -1.83174638 218.        ]
+22   13 [ -3.94737019   0.71185566  -1.83058851 217.        ]
+21   14 [ -3.96401119   0.70282852  -1.83228464 208.        ]
+20   15 [ -3.95555798   0.70318478  -1.83108895 207.        ]
+19   16 [ -3.96377959   0.69447721  -1.83132576 197.        ]
+18   17 [ -3.96369799   0.685985    -1.830256   186.        ]
+17   18 [ -3.93957587   0.72901456  -1.82975765 238.        ]
+6   19 [ -3.93862776   0.69522279  -1.82793758 194.        ]
+5   20 [ -3.93021703   0.69557417  -1.82663978 193.        ]
+4   21 [ -3.95519255   0.68632605  -1.82920898 185.        ]
+3   22 [ -3.94685118   0.68653197  -1.82804759 184.        ]
+1   23 [ -3.93009161   0.68709587  -1.82567217 182.        ]
+2   24 [ -3.93841125   0.68685076  -1.82690333 183.        ]
+7   25 [ -3.94695574   0.69499819  -1.82911877 195.        ]
+8   26 [ -3.9554024    0.6946877   -1.83024539 196.        ]
+9   27 [ -3.93046599   0.70392148  -1.82753744 204.        ]
+10   28 [ -3.93876887   0.70368882  -1.82878664 205.        ]
+11   29 [ -3.94719136   0.70336879  -1.82998227 206.        ]
+12   30 [ -3.93063933   0.71242686  -1.82801613 215.        ]
+13   31 [ -3.93904423   0.7120978   -1.82931377 216.        ]
+14   32 [ -3.93094618   0.72078246  -1.82838698 226.        ]
+15   33 [ -3.93924513   0.7206024   -1.82964305 227.        ]
+16   34 [ -3.93122144   0.72933066  -1.82829928 237.        ]
+create_charuco_corners:  24 x 12
+square_length:  9.9
+marker_length:  7.4
+charuco board size =  24 x 12
+we split it into =  3 x 2
+split charuco board size =  8 x 6
+----------------------------charuco match----------------------------
+split_charuco_board  1_2 :
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+charuco not found in  charuco/hzgb_f2_out_r3_102
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (35, 1, 2) charuco corners
+detect  (31, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (34, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (28, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (12, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (33, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (2, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (28, 1, 2) charuco corners
+detect  (24, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+detect  (16, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+colmap database_creator --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_002.db
+colmap feature_importer --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_002.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/guobo/images --import_path /data/largescene/guobo/charucos/detection/
+set_camera {(23, 27), (24, 28), (20, 24)}
+colmap matches_importer --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_002.db --match_list_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_002_match.txt --match_type raw
+colmap point_triangulator --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_002.db --image_path /data/largescene/guobo/images --input_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_002_model/ --output_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f4_r3_002_model/ --Mapper.tri_ignore_two_view_tracks 0
+35   0 [  3.89575085  -0.84184401   0.61521767 252.        ]
+34   1 [  3.89243883  -0.84160941   0.60750626 251.        ]
+33   2 [  3.88920256  -0.84123231   0.59969428 250.        ]
+32   3 [  3.88581012  -0.84102357   0.59203532 249.        ]
+31   4 [  3.88259329  -0.84071101   0.58426201 248.        ]
+30   5 [  3.89776467  -0.84999084   0.61416827 241.        ]
+29   6 [  3.8944055   -0.84967427   0.60641397 240.        ]
+28   7 [  3.89107175  -0.84945768   0.59871946 239.        ]
+27   8 [  3.88772873  -0.84918565   0.59098436 238.        ]
+26   9 [  3.88450593  -0.84885475   0.5832314  237.        ]
+25   10 [  3.89988589  -0.85806777   0.6130532  230.        ]
+24   11 [  3.89648456  -0.85781312   0.60536423 229.        ]
+23   12 [  3.89317057  -0.85750989   0.59757706 228.        ]
+22   13 [  3.88983998  -0.85730157   0.58989349 227.        ]
+21   14 [  3.88659571  -0.85697614   0.58213782 226.        ]
+20   15 [  3.90221101  -0.86609686   0.61185947 219.        ]
+19   16 [  3.89878942  -0.86587416   0.60414799 218.        ]
+18   17 [  3.89547211  -0.86557061   0.59639119 217.        ]
+17   18 [  3.89212421  -0.86531915   0.58869125 216.        ]
+6   19 [  3.89397903  -0.88087191   0.57824524 193.        ]
+5   20 [  3.91011763  -0.88970173   0.60775722 186.        ]
+4   21 [  3.90677207  -0.88943252   0.5999995  185.        ]
+3   22 [  3.90339976  -0.88920929   0.59227667 184.        ]
+1   23 [  3.896762    -0.88868892   0.57679763 182.        ]
+2   24 [  3.90005146  -0.88896269   0.58454606 183.        ]
+7   25 [  3.89730367  -0.8811308    0.58598376 194.        ]
+8   26 [  3.90063978  -0.88140666   0.59368579 195.        ]
+9   27 [  3.90402261  -0.88163802   0.6014035  196.        ]
+10   28 [  3.90736954  -0.8819164    0.60917989 197.        ]
+11   29 [  3.89135783  -0.87296692   0.5795943  204.        ]
+12   30 [  3.89464836  -0.87325763   0.58735723 205.        ]
+13   31 [  3.89796421  -0.87351772   0.5950736  206.        ]
+14   32 [  3.90131818  -0.87381825   0.6028335  207.        ]
+15   33 [  3.90470499  -0.87403844   0.61055998 208.        ]
+16   34 [  3.88883608  -0.86505069   0.58092302 215.        ]
+create_charuco_corners:  24 x 12
+square_length:  9.9
+marker_length:  7.4
+charuco board size =  24 x 12
+we split it into =  3 x 2
+split charuco board size =  8 x 6
+----------------------------charuco match----------------------------
+split_charuco_board  1_2 :
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+charuco not found in  charuco/hzgb_f2_out_r3_101
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (6, 1, 2) charuco corners
+detect  (19, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (22, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (6, 1, 2) charuco corners
+detect  (16, 1, 2) charuco corners
+detect  (15, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (11, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (33, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+colmap database_creator --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_001.db
+colmap feature_importer --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_001.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/guobo/images --import_path /data/largescene/guobo/charucos/detection/
+set_camera {(23, 27), (21, 25), (24, 28), (20, 24)}
+colmap matches_importer --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_001.db --match_list_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_001_match.txt --match_type raw
+colmap point_triangulator --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_001.db --image_path /data/largescene/guobo/images --input_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_001_model/ --output_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_001_model/ --Mapper.tri_ignore_two_view_tracks 0
+43   0 [-1.20111686e+00  3.28542719e-02  4.56414841e-01  2.40000000e+02]
+42   1 [-1.19747209e+00  1.15043631e-03  4.37063174e-01  1.94000000e+02]
+40   2 [-1.20450491e+00  3.37474262e-02  4.40171472e-01  2.38000000e+02]
+39   3 [-1.19706109e+00  2.63680288e-02  4.54256926e-01  2.29000000e+02]
+38   4 [-1.19611179e+00  1.59490024e-02  4.63154338e-01  2.19000000e+02]
+37   5 [-1.19801396e+00  1.64004061e-02  4.54978417e-01  2.18000000e+02]
+16   6 [-1.19960982e+00  2.46463526e-02  4.55735474e-01  2.29000000e+02]
+15   7 [-1.20134409e+00  2.50726832e-02  4.47587693e-01  2.28000000e+02]
+14   8 [-1.20304924e+00  2.54832846e-02  4.39498646e-01  2.27000000e+02]
+13   9 [-1.20472333e+00  2.58937422e-02  4.31332561e-01  2.26000000e+02]
+12   10 [-1.20311524e+00  1.77361671e-02  4.30630173e-01  2.15000000e+02]
+11   11 [-1.20111462e+00  9.66476942e-03  4.29809559e-01  2.04000000e+02]
+10   12 [-1.19205501e+00 -1.25696850e-04  4.61487344e-01  1.97000000e+02]
+9   13 [-1.19390492e+00  3.26476381e-04  4.53334315e-01  1.96000000e+02]
+8   14 [-1.19570754e+00  7.22957638e-04  4.45256425e-01  1.95000000e+02]
+2   15 [-1.19510230e+00 -6.81685624e-03  4.36236477e-01  1.83000000e+02]
+1   16 [-1.19686186e+00 -6.35534235e-03  4.28048869e-01  1.82000000e+02]
+3   17 [-1.19345903e+00 -7.24579763e-03  4.44271222e-01  1.84000000e+02]
+4   18 [-1.19176876e+00 -7.67649006e-03  4.52417155e-01  1.85000000e+02]
+5   19 [-1.18986200e+00 -8.05373078e-03  4.60591050e-01  1.86000000e+02]
+6   20 [-1.19915202e+00  1.61371847e-03  4.28960219e-01  1.93000000e+02]
+17   21 [-1.19778017e+00  2.42229390e-02  4.63846795e-01  2.30000000e+02]
+18   22 [-1.20276289e+00  3.32698929e-02  4.48313834e-01  2.39000000e+02]
+20   23 [-1.1994775e+00  9.2188620e-03  4.3797328e-01  2.0500000e+02]
+21   24 [-1.19774379e+00  8.81048980e-03  4.46035305e-01  2.06000000e+02]
+22   25 [-1.19606568e+00  8.34634798e-03  4.54209990e-01  2.07000000e+02]
+23   26 [-1.19423288e+00  7.93051669e-03  4.62293632e-01  2.08000000e+02]
+24   27 [-1.20141677e+00  1.73269412e-02  4.38703352e-01  2.16000000e+02]
+25   28 [-1.20617456e+00  3.41401533e-02  4.32089477e-01  2.37000000e+02]
+26   29 [-1.19956255e+00  3.23018464e-02  4.64625894e-01  2.41000000e+02]
+27   30 [-1.20728799e+00  4.25079305e-02  4.32717107e-01  2.48000000e+02]
+28   31 [-1.20583308e+00  4.19372236e-02  4.40924240e-01  2.49000000e+02]
+29   32 [-1.20420081e+00  4.14800843e-02  4.48985291e-01  2.50000000e+02]
+30   33 [-1.20239353e+00  4.10830601e-02  4.57156850e-01  2.51000000e+02]
+31   34 [-1.20078253e+00  4.06160394e-02  4.65237498e-01  2.52000000e+02]
+32   35 [-1.19307022e+00 -5.69430554e-03  4.34520709e-01  1.83000000e+02]
+34   36 [-1.20036959e+00  1.03602869e-02  4.28974233e-01  2.04000000e+02]
+35   37 [-1.19753396e+00  1.04674523e-02  4.36406738e-01  2.05000000e+02]
+36   38 [-1.19971028e+00  1.68410236e-02  4.46859119e-01  2.17000000e+02]
+create_charuco_corners:  24 x 12
+square_length:  9.9
+marker_length:  7.4
+charuco board size =  24 x 12
+we split it into =  3 x 2
+split charuco board size =  8 x 6
+----------------------------charuco match----------------------------
+split_charuco_board  1_2 :
+detect  (33, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (22, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (16, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (7, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+colmap database_creator --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_003.db
+colmap feature_importer --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_003.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/guobo/images --import_path /data/largescene/guobo/charucos/detection/
+set_camera {(21, 25), (24, 28), (20, 24), (22, 26), (23, 27)}
+colmap matches_importer --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_003.db --match_list_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_003_match.txt --match_type raw
+colmap point_triangulator --database_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_003.db --image_path /data/largescene/guobo/images --input_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_003_model/ --output_path /data/largescene/guobo/charucos/detection/charuco/hzgb_f3_r3_003_model/ --Mapper.tri_ignore_two_view_tracks 0
+35   0 [  4.91908849   0.37950939   0.58644167 252.        ]
+34   1 [  4.92060609   0.38015565   0.57770711 251.        ]
+33   2 [  4.9222857    0.38080879   0.56908659 250.        ]
+32   3 [  4.92383804   0.38144782   0.56038751 249.        ]
+31   4 [  4.92551968   0.38203334   0.55177412 248.        ]
+30   5 [  4.9204525    0.37082795   0.58603849 241.        ]
+29   6 [  4.92210006   0.37151271   0.57739925 240.        ]
+28   7 [  4.92350249   0.37208491   0.56862312 239.        ]
+27   8 [  4.92505559   0.37269144   0.55997797 238.        ]
+26   9 [  4.92678102   0.37340902   0.55132833 237.        ]
+25   10 [  4.92209605   0.36217528   0.58572785 230.        ]
+24   11 [  4.92361524   0.36283321   0.57700279 229.        ]
+23   12 [  4.92505581   0.36340778   0.56829306 228.        ]
+22   13 [  4.92662674   0.36407853   0.55959204 227.        ]
+21   14 [  4.92825245   0.36470952   0.55096901 226.        ]
+20   15 [  4.92394876   0.35357866   0.58540205 219.        ]
+19   16 [  4.92541885   0.35418884   0.57668786 218.        ]
+18   17 [  4.92690687   0.35485617   0.56796301 217.        ]
+17   18 [  4.92843254   0.35547957   0.55930117 216.        ]
+6   19 [  4.93408982   0.33912241   0.55003572 193.        ]
+5   20 [  4.93078947   0.32806985   0.58466538 186.        ]
+4   21 [  4.93215578   0.32871702   0.57588266 185.        ]
+3   22 [  4.93356407   0.32933921   0.56718146 184.        ]
+1   23 [  4.93647464   0.33066711   0.54982381 182.        ]
+2   24 [  4.93501899   0.33002766   0.55847027 183.        ]
+7   25 [  4.93258923   0.33842262   0.55872538 194.        ]
+8   26 [  4.93117166   0.33780489   0.56741977 195.        ]
+9   27 [  4.92977426   0.33715438   0.57615642 196.        ]
+10   28 [  4.92829753   0.33651706   0.58486976 197.        ]
+11   29 [  4.93193748   0.34760024   0.55032464 204.        ]
+12   30 [  4.93038153   0.34694227   0.55896846 205.        ]
+13   31 [  4.92885587   0.3462502    0.56766293 206.        ]
+14   32 [  4.92742528   0.34564598   0.57637654 207.        ]
+15   33 [  4.92599901   0.34500241   0.5851243  208.        ]
+16   34 [  4.92996939   0.35617369   0.55061244 215.        ]
+create_charuco_corners:  24 x 12
+square_length:  9.9
+marker_length:  7.4
+charuco board size =  24 x 12
+we split it into =  3 x 2
+split charuco board size =  8 x 6
+----------------------------charuco match----------------------------
+split_charuco_board  1_2 :
+optimizing...
+`xtol` termination condition is satisfied.
+Function evaluations 84319, initial cost 5.7644e+03, final cost 7.5495e+00, first-order optimality 7.78e+00.
+opted scale =  11.635328358392908
+board id = 1_2, mean error(unit:m) = 0.004114572137045695, point number = 35
+
+board id = 1_2, mean error(unit:m) = 0.004696654627723226, point number = 35
+
+board id = 1_2, mean error(unit:m) = 0.004319065900830355, point number = 35
+
+board id = 1_2, mean error(unit:m) = 0.007594636332249758, point number = 39
+
+board id = 1_2, mean error(unit:m) = 0.08942839051932425, point number = 35
+
+opted scale = 11.635328358392908
+
+Jump  custom.create_gravity_list
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+{
+  "note": "\u4ec5\u7528base/gravity\u751f\u6210model\uff0calign to gravity(run export geo to get gravityz)",
+  "database": "/data/largescene/guobo//charuco.db",
+  "image_path": "/data/largescene/guobo/images",
+  "input_model": "/data/largescene/guobo//sparse/charuco_rescale",
+  "gravity_model": "/data/largescene/guobo//sparse/charuco_rescale_select_gravity",
+  "gravity_list": "/data/largescene/guobo//gravity_delete_list.txt",
+  "output_model": "/data/largescene/guobo//sparse/gravity",
+  "colmap": {
+    "model_orientation_aligner": {
+      "image_path": "/data/largescene/guobo/images",
+      "input_path": "/data/largescene/guobo//sparse/charuco_rescale",
+      "output_path": "/data/largescene/guobo//sparse/gravity",
+      "max_image_size": 1024
+    }
+  }
+}
+colmap model_orientation_aligner --image_path /data/largescene/guobo/images --input_path /data/largescene/guobo//sparse/charuco_rescale --output_path /data/largescene/guobo//sparse/gravity --max_image_size 1024

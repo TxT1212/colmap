@@ -1,0 +1,85 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/media/netease/Storage/LargeScene/Scene/XixiWetland/raw_cam/test_butterfly/videos",
+  "video_frame_path": "/data/largescene/guobo/frames",
+  "model_proj_path": "/data/largescene/guobo/",
+  "model_proj_image_path": "/data/largescene/guobo/images",
+  "colmap_voc_file": "/home/mm/ARWorkspace/colmap/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "OPENCV_FISHEYE",
+  "loc": "SIMPLE_RADIAL"
+}
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+Jump  colmap.base_reconstruction
+Jump  copy.charucoimage
+Jump  copy.db
+Jump  custom.charuco_match_list
+Jump  colmap.charuco_registration
+Jump  custom.charuco_detect
+Jump  custom.create_gravity_list
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+==================================
+ colmap.makegeo 
+ produce geo model with only base images(for dense reconstruction) 
+==================================
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+Jump  colmap.base_reconstruction
+Jump  copy.charucoimage
+Jump  copy.db
+Jump  custom.charuco_match_list
+Jump  colmap.charuco_registration
+Jump  custom.charuco_detect
+Jump  custom.create_gravity_list
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+{
+  "note": "\u4ec5\u7528base/gravity\u751f\u6210model\uff0calign to gravity(run export geo to get gravityz)",
+  "database": "/data/largescene/guobo//charuco.db",
+  "image_path": "/data/largescene/guobo/images",
+  "input_model": "/data/largescene/guobo//sparse/charuco_rescale",
+  "gravity_model": "/data/largescene/guobo//sparse/charuco_rescale_select_gravity",
+  "gravity_list": "/data/largescene/guobo//gravity_delete_list.txt",
+  "output_model": "/data/largescene/guobo//sparse/gravity",
+  "colmap": {
+    "model_orientation_aligner": {
+      "image_path": "/data/largescene/guobo/images",
+      "input_path": "/data/largescene/guobo//sparse/charuco_rescale",
+      "output_path": "/data/largescene/guobo//sparse/gravity",
+      "max_image_size": 1000
+    }
+  }
+}
+colmap model_orientation_aligner --image_path /data/largescene/guobo/images --input_path /data/largescene/guobo//sparse/charuco_rescale --output_path /data/largescene/guobo//sparse/gravity --max_image_size 1000
+==================================
+ colmap.makegeo 
+ produce geo model with only base images(for dense reconstruction) 
+==================================
+{
+  "note": "produce geo model with only base images(for dense reconstruction)",
+  "ref_images_txt": "/data/largescene/guobo//sparse/gravity/geos.txt",
+  "database": "/data/largescene/guobo//database.db",
+  "image_path": "/data/largescene/guobo/images",
+  "input_model": "/data/largescene/guobo//sparse/org",
+  "output_model": "/data/largescene/guobo//sparse/geo",
+  "colmap": {
+    "model_aligner": {
+      "ref_images_path": "/data/largescene/guobo//sparse/gravity/geos.txt",
+      "input_path": "/data/largescene/guobo//sparse/org",
+      "output_path": "/data/largescene/guobo//sparse/geo",
+      "robust_alignment_max_error": 0.05
+    }
+  }
+}
+colmap model_aligner --ref_images_path /data/largescene/guobo//sparse/gravity/geos.txt --input_path /data/largescene/guobo//sparse/org --output_path /data/largescene/guobo//sparse/geo --robust_alignment_max_error 0.05

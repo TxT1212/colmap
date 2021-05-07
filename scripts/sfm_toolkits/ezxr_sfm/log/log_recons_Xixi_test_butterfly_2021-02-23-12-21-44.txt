@@ -1,0 +1,129 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/data/largescene/shunyu/videos/",
+  "video_frame_path": "/data/largescene/shunyu/images",
+  "model_proj_path": "/data/largescene/shunyu/",
+  "model_proj_image_path": "/data/largescene/shunyu/images",
+  "colmap_voc_file": "/home/netease/ARWorkspace/colmap_ezxr/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "SIMPLE_RADIAL",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+Jump  colmap.base_reconstruction
+Jump  copy.charucoimage
+Jump  copy.db
+Jump  custom.charuco_match_list
+Jump  colmap.charuco_registration
+******Check Below Result****** custom.charuco_detect
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+Jump  custom.create_gravity_list
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+==================================
+ colmap.makegeo 
+ produce geo model with only base images(for dense reconstruction) 
+==================================
+check params, commands and status, Press to continue...
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+Jump  colmap.base_reconstruction
+Jump  copy.charucoimage
+Jump  copy.db
+Jump  custom.charuco_match_list
+Jump  colmap.charuco_registration
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+-------charuco detection-------
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (1, 1, 2) charuco corners
+detect  (18, 1, 2) charuco corners
+detect  (16, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+detect  (15, 1, 2) charuco corners
+detect  (15, 1, 2) charuco corners
+detect  (13, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (29, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (31, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (33, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (17, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (19, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (34, 1, 2) charuco corners
+detect  (30, 1, 2) charuco corners
+detect  (25, 1, 2) charuco corners
+detect  (28, 1, 2) charuco corners
+detect  (28, 1, 2) charuco corners
+detect  (19, 1, 2) charuco corners
+detect  (20, 1, 2) charuco corners
+detect  (18, 1, 2) charuco corners
+detect  (18, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+detect  (14, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+detect  (8, 1, 2) charuco corners
+detect  (15, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+detect  (8, 1, 2) charuco corners
+detect  (8, 1, 2) charuco corners
+detect  (5, 1, 2) charuco corners
+detect  (5, 1, 2) charuco corners
+detect  (5, 1, 2) charuco corners
+detect  (2, 1, 2) charuco corners
+detect  (2, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+colmap database_creator --database_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114619.db
+colmap feature_importer --database_path /data/largescene/shunyu/charucos/detection/base/VID_20210223_114619.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/shunyu/images --import_path /data/largescene/shunyu/charucos/detection/
+failed to read  /data/largescene/shunyu//sparse/charuco/images.txt or bin

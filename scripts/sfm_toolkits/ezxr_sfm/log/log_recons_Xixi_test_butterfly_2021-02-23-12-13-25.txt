@@ -1,0 +1,83 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/data/largescene/shunyu/videos/",
+  "video_frame_path": "/data/largescene/shunyu/images",
+  "model_proj_path": "/data/largescene/shunyu/images",
+  "model_proj_image_path": "/data/largescene/shunyu/images",
+  "colmap_voc_file": "/home/netease/ARWorkspace/colmap_ezxr/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "SIMPLE_RADIAL",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+******Check Below Result****** colmap.base_reconstruction
+==================================
+ colmap.base_reconstruction 
+ reconstruct with base frames 骨架地图 
+==================================
+Jump  copy.charucoimage
+==================================
+ copy.db 
+ copy db to charuco.db 
+==================================
+==================================
+ custom.charuco_match_list 
+ generate charuco match list, match charuco folders only with base images 
+==================================
+Jump  colmap.charuco_registration
+******Check Below Result****** custom.charuco_detect
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+Jump  custom.create_gravity_list
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+==================================
+ colmap.makegeo 
+ produce geo model with only base images(for dense reconstruction) 
+==================================
+check params, commands and status, Press to continue...
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+==================================
+ colmap.base_reconstruction 
+ reconstruct with base frames 骨架地图 
+==================================
+{
+  "note": "reconstruct with base frames \u9aa8\u67b6\u5730\u56fe",
+  "database": "/data/largescene/shunyu/images/database.db",
+  "image_path": "/data/largescene/shunyu/images",
+  "input_model": "",
+  "output_model": "/data/largescene/shunyu/images/sparse/org",
+  "colmap": {
+    "feature_extractor": {
+      "database_path": "/data/largescene/shunyu/images/database.db",
+      "image_path": "/data/largescene/shunyu/images",
+      "ImageReader.single_camera_per_folder": 1,
+      "ImageReader.camera_model": "SIMPLE_RADIAL"
+    },
+    "exhaustive_matcher": {
+      "database_path": "/data/largescene/shunyu/images/database.db",
+      "SiftMatching.min_num_inliers": 100
+    },
+    "mapper": {
+      "database_path": "/data/largescene/shunyu/images/database.db",
+      "image_path": "/data/largescene/shunyu/images",
+      "output_path": "/data/largescene/shunyu/images/sparse/org",
+      "Mapper.abs_pose_min_num_inliers": 50
+    }
+  }
+}
+colmap feature_extractor --database_path /data/largescene/shunyu/images/database.db --image_path /data/largescene/shunyu/images --ImageReader.single_camera_per_folder 1 --ImageReader.camera_model SIMPLE_RADIAL
+colmap exhaustive_matcher --database_path /data/largescene/shunyu/images/database.db --SiftMatching.min_num_inliers 100
+colmap mapper --database_path /data/largescene/shunyu/images/database.db --image_path /data/largescene/shunyu/images --output_path /data/largescene/shunyu/images/sparse/org --Mapper.abs_pose_min_num_inliers 50
+Warning! base reconstruction produced multiple models or failed with model num =  0 . exit and check manually.

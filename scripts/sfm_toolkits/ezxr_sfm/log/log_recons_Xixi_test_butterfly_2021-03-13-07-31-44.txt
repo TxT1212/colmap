@@ -1,0 +1,267 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/media/netease/Storage/LargeScene/Scene/XixiWetland/raw_cam/test_butterfly/videos",
+  "video_frame_path": "/data/largescene/guobo/frames",
+  "model_proj_path": "/data/largescene/qj_city_block_selected",
+  "model_proj_image_path": "/data/largescene/qj_city_block_selected/images",
+  "colmap_voc_file": "/home/mm/ARWorkspace/colmap/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "OPENCV_FISHEYE",
+  "loc": "SIMPLE_RADIAL"
+}
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+Jump  colmap.base_reconstruction
+Jump  copy.charucoimage
+Jump  copy.db
+Jump  custom.charuco_match_list
+Jump  colmap.charuco_registration
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+Jump  custom.create_gravity_list
+Jump  colmap.gravity
+Jump  colmap.makegeo
+Jump  custom.rawdata_process
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+Jump  colmap.base_reconstruction
+Jump  copy.charucoimage
+Jump  copy.db
+Jump  custom.charuco_match_list
+Jump  colmap.charuco_registration
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+-------charuco detection-------
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+detect  (26, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (30, 1, 2) charuco corners
+detect  (25, 1, 2) charuco corners
+detect  (12, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+colmap database_creator --database_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r8_001.db
+colmap feature_importer --database_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r8_001.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/qj_city_block_selected/images --import_path /data/largescene/qj_city_block_selected/charucos/detection/
+set_camera {(3, 13)}
+colmap matches_importer --database_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r8_001.db --match_list_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r8_001_match.txt --match_type raw
+colmap point_triangulator --database_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r8_001.db --image_path /data/largescene/qj_city_block_selected/images --input_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r8_001_model/ --output_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r8_001_model/ --Mapper.tri_ignore_two_view_tracks 0
+35   0 [ 5.86138579e+00  1.30811396e+00 -1.40360480e-01  2.52000000e+02]
+34   1 [ 5.86495269e+00  1.30039732e+00 -1.40507801e-01  2.51000000e+02]
+33   2 [ 5.86820723e+00  1.29255974e+00 -1.40531474e-01  2.50000000e+02]
+32   3 [ 5.87150107e+00  1.28472301e+00 -1.40576610e-01  2.49000000e+02]
+31   4 [ 5.87481971e+00  1.27688793e+00 -1.40699229e-01  2.48000000e+02]
+30   5 [ 5.87309549e+00  1.28543551e+00 -1.32089126e-01  2.38000000e+02]
+29   6 [ 5.87625527e+00  1.27757166e+00 -1.32108107e-01  2.37000000e+02]
+28   7 [ 5.87995273e+00  1.27914596e+00 -1.15352362e-01  2.15000000e+02]
+27   8 [ 5.88194297e+00  1.27995938e+00 -1.07090606e-01  2.04000000e+02]
+26   9 [ 5.86282060e+00  1.30872086e+00 -1.31729787e-01  2.41000000e+02]
+25   10 [ 5.86637712e+00  1.30100921e+00 -1.31886132e-01  2.40000000e+02]
+24   11 [ 5.86982987e+00  1.29326987e+00 -1.32012117e-01  2.39000000e+02]
+23   12 [ 5.86380764e+00  1.30922949e+00 -1.22922743e-01  2.30000000e+02]
+22   13 [ 5.86776893e+00  1.30165923e+00 -1.23260279e-01  2.29000000e+02]
+21   14 [ 5.87140339e+00  1.29396979e+00 -1.23471493e-01  2.28000000e+02]
+20   15 [ 5.87484341e+00  1.28621576e+00 -1.23625588e-01  2.27000000e+02]
+19   16 [ 5.87804415e+00  1.27836612e+00 -1.23670326e-01  2.26000000e+02]
+18   17 [ 5.86600666e+00  1.31008463e+00 -1.14731092e-01  2.19000000e+02]
+17   18 [ 5.86984530e+00  1.30245771e+00 -1.15015461e-01  2.18000000e+02]
+6   19 [ 5.88411434e+00  1.28085172e+00 -9.88778206e-02  1.93000000e+02]
+5   20 [ 5.87285122e+00  1.31276488e+00 -9.02312670e-02  1.86000000e+02]
+4   21 [ 5.87656151e+00  1.30512760e+00 -9.04592905e-02  1.85000000e+02]
+3   22 [ 5.88008487e+00  1.29742627e+00 -9.06455981e-02  1.84000000e+02]
+1   23 [ 5.88635585e+00  1.28178229e+00 -9.06886638e-02  1.82000000e+02]
+2   24 [ 5.88331527e+00  1.28962793e+00 -9.06954747e-02  1.83000000e+02]
+7   25 [ 5.88100791e+00  1.28870364e+00 -9.88713753e-02  1.94000000e+02]
+8   26 [ 5.87778264e+00  1.29650247e+00 -9.88209932e-02  1.95000000e+02]
+9   27 [ 5.87424899e+00  1.30420755e+00 -9.86375358e-02  1.96000000e+02]
+10   28 [ 5.87049097e+00  1.31182860e+00 -9.83818734e-02  1.97000000e+02]
+11   29 [ 5.87890686e+00  1.28783414e+00 -1.07118746e-01  2.05000000e+02]
+12   30 [ 5.87562381e+00  1.29562444e+00 -1.07046369e-01  2.06000000e+02]
+13   31 [ 5.87205333e+00  1.30332249e+00 -1.06834617e-01  2.07000000e+02]
+14   32 [ 5.86820100e+00  1.31092926e+00 -1.06563619e-01  2.08000000e+02]
+15   33 [ 5.87684583e+00  1.28700154e+00 -1.15356088e-01  2.16000000e+02]
+16   34 [ 5.87352506e+00  1.29480863e+00 -1.15266738e-01  2.17000000e+02]
+create_charuco_corners:  24 x 12
+square_length:  9.9
+marker_length:  7.4
+charuco board size =  24 x 12
+we split it into =  3 x 2
+split charuco board size =  8 x 6
+----------------------------charuco match----------------------------
+split_charuco_board  1_2 :
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (7, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+colmap database_creator --database_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r7_001.db
+colmap feature_importer --database_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r7_001.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/qj_city_block_selected/images --import_path /data/largescene/qj_city_block_selected/charucos/detection/
+set_camera {(2, 12), (3, 13)}
+colmap matches_importer --database_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r7_001.db --match_list_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r7_001_match.txt --match_type raw
+colmap point_triangulator --database_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r7_001.db --image_path /data/largescene/qj_city_block_selected/images --input_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r7_001_model/ --output_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r7_001_model/ --Mapper.tri_ignore_two_view_tracks 0
+35   0 [ 5.86084139e+00  1.30794125e+00 -1.39853248e-01  2.52000000e+02]
+34   1 [ 5.86424351e+00  1.30023470e+00 -1.39945233e-01  2.51000000e+02]
+33   2 [ 5.86781402e+00  1.29252458e+00 -1.40118770e-01  2.50000000e+02]
+32   3 [ 5.87121673e+00  1.28473327e+00 -1.40249595e-01  2.49000000e+02]
+31   4 [ 5.87428620e+00  1.27685725e+00 -1.40259286e-01  2.48000000e+02]
+30   5 [ 5.86242995e+00  1.30863285e+00 -1.31442256e-01  2.41000000e+02]
+29   6 [ 5.86615046e+00  1.30099056e+00 -1.31644628e-01  2.40000000e+02]
+28   7 [ 5.86966281e+00  1.29326011e+00 -1.31795101e-01  2.39000000e+02]
+27   8 [ 5.87306747e+00  1.28547274e+00 -1.31918463e-01  2.38000000e+02]
+26   9 [ 5.87623000e+00  1.27762232e+00 -1.31967597e-01  2.37000000e+02]
+25   10 [ 5.86435698e+00  1.30938674e+00 -1.23166604e-01  2.30000000e+02]
+24   11 [ 5.86804188e+00  1.30172742e+00 -1.23354764e-01  2.29000000e+02]
+23   12 [ 5.87155560e+00  1.29402055e+00 -1.23516193e-01  2.28000000e+02]
+22   13 [ 5.87482453e+00  1.28621994e+00 -1.23604433e-01  2.27000000e+02]
+21   14 [ 5.87823723e+00  1.27842247e+00 -1.23705011e-01  2.26000000e+02]
+20   15 [ 5.86630994e+00  1.31017200e+00 -1.14880685e-01  2.19000000e+02]
+19   16 [ 5.86995697e+00  1.30251191e+00 -1.15070374e-01  2.18000000e+02]
+18   17 [ 5.87337499e+00  1.29479885e+00 -1.15207656e-01  2.17000000e+02]
+17   18 [ 5.87690020e+00  1.28704591e+00 -1.15359150e-01  2.16000000e+02]
+6   19 [ 5.88425879e+00  1.28093371e+00 -9.89160970e-02  1.93000000e+02]
+5   20 [ 5.87166820e+00  1.31260235e+00 -8.99802531e-02  1.86000000e+02]
+4   21 [ 5.87623584e+00  1.30508905e+00 -9.03543330e-02  1.85000000e+02]
+3   22 [ 5.87994264e+00  1.29743961e+00 -9.05539515e-02  1.84000000e+02]
+1   23 [ 5.88643723e+00  1.28186922e+00 -9.07353789e-02  1.82000000e+02]
+2   24 [ 5.88317231e+00  1.28966565e+00 -9.06149679e-02  1.83000000e+02]
+7   25 [ 5.88097126e+00  1.28873758e+00 -9.88464274e-02  1.94000000e+02]
+8   26 [ 5.87766918e+00  1.29650981e+00 -9.87665586e-02  1.95000000e+02]
+9   27 [ 5.87396081e+00  1.30415966e+00 -9.85678071e-02  1.96000000e+02]
+10   28 [ 5.87024574e+00  1.31181017e+00 -9.83507501e-02  1.97000000e+02]
+11   29 [ 5.88217514e+00  1.28005879e+00 -1.07165217e-01  2.04000000e+02]
+12   30 [ 5.87900730e+00  1.28788801e+00 -1.07132604e-01  2.05000000e+02]
+13   31 [ 5.87547264e+00  1.29562614e+00 -1.06981156e-01  2.06000000e+02]
+14   32 [ 5.87198404e+00  1.30335100e+00 -1.06838880e-01  2.07000000e+02]
+15   33 [ 5.86831573e+00  1.31096368e+00 -1.06625514e-01  2.08000000e+02]
+16   34 [ 5.88030640e+00  1.27923672e+00 -1.15450234e-01  2.15000000e+02]
+create_charuco_corners:  24 x 12
+square_length:  9.9
+marker_length:  7.4
+charuco board size =  24 x 12
+we split it into =  3 x 2
+split charuco board size =  8 x 6
+----------------------------charuco match----------------------------
+split_charuco_board  1_2 :
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (37, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (35, 1, 2) charuco corners
+detect  (3, 1, 2) charuco corners
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+Charuco corners detection failed! 
+ please check the config of charuco board! rows and cols should be complete!
+colmap database_creator --database_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r6_001.db
+colmap feature_importer --database_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r6_001.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/qj_city_block_selected/images --import_path /data/largescene/qj_city_block_selected/charucos/detection/
+set_camera {(1, 11), (2, 12), (3, 13)}
+colmap matches_importer --database_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r6_001.db --match_list_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r6_001_match.txt --match_type raw
+colmap point_triangulator --database_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r6_001.db --image_path /data/largescene/qj_city_block_selected/images --input_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r6_001_model/ --output_path /data/largescene/qj_city_block_selected/charucos/detection/charuco/qjCity_blockA_0311_food_r6_001_model/ --Mapper.tri_ignore_two_view_tracks 0
+35   0 [ 5.86028402e+00  1.30799883e+00 -1.39638444e-01  2.52000000e+02]
+34   1 [ 5.86417786e+00  1.30027612e+00 -1.39896382e-01  2.51000000e+02]
+33   2 [ 5.86747206e+00  1.29246992e+00 -1.39954824e-01  2.50000000e+02]
+32   3 [ 5.87063101e+00  1.28460875e+00 -1.39957027e-01  2.49000000e+02]
+31   4 [ 5.87366857e+00  1.27667474e+00 -1.39921945e-01  2.48000000e+02]
+30   5 [ 5.86233285e+00  1.30875599e+00 -1.31449276e-01  2.41000000e+02]
+29   6 [ 5.86619945e+00  1.30103977e+00 -1.31685356e-01  2.40000000e+02]
+28   7 [ 5.86949341e+00  1.29324432e+00 -1.31727676e-01  2.39000000e+02]
+27   8 [ 5.87264386e+00  1.28537134e+00 -1.31729633e-01  2.38000000e+02]
+26   9 [ 5.87568978e+00  1.27746853e+00 -1.31691063e-01  2.37000000e+02]
+25   10 [ 5.86450609e+00  1.30953479e+00 -1.23303146e-01  2.30000000e+02]
+24   11 [ 5.86821991e+00  1.30181640e+00 -1.23457743e-01  2.29000000e+02]
+23   12 [ 5.87152783e+00  1.29401914e+00 -1.23513785e-01  2.28000000e+02]
+22   13 [ 5.87467853e+00  1.28616131e+00 -1.23508624e-01  2.27000000e+02]
+21   14 [ 5.87773674e+00  1.27825508e+00 -1.23461620e-01  2.26000000e+02]
+20   15 [ 5.86660259e+00  1.31034571e+00 -1.15107776e-01  2.19000000e+02]
+19   16 [ 5.87031317e+00  1.30263544e+00 -1.15271981e-01  2.18000000e+02]
+18   17 [ 5.87362385e+00  1.29483321e+00 -1.15312736e-01  2.17000000e+02]
+17   18 [ 5.87677781e+00  1.28696678e+00 -1.15315539e-01  2.16000000e+02]
+6   19 [ 5.88413475e+00  1.28078235e+00 -9.88360884e-02  1.93000000e+02]
+5   20 [ 5.87280683e+00  1.31284890e+00 -9.04229060e-02  1.86000000e+02]
+4   21 [ 5.87676076e+00  1.30518547e+00 -9.06660877e-02  1.85000000e+02]
+3   22 [ 5.88013134e+00  1.29740878e+00 -9.07241369e-02  1.84000000e+02]
+1   23 [ 5.88650649e+00  1.28172017e+00 -9.06883649e-02  1.82000000e+02]
+2   24 [ 5.88337736e+00  1.28957031e+00 -9.06801726e-02  1.83000000e+02]
+7   25 [ 5.88105460e+00  1.28866808e+00 -9.88996885e-02  1.94000000e+02]
+8   26 [ 5.87784248e+00  1.29651072e+00 -9.88899113e-02  1.95000000e+02]
+9   27 [ 5.87459093e+00  1.30430184e+00 -9.88660668e-02  1.96000000e+02]
+10   28 [ 5.87059394e+00  1.31196723e+00 -9.86073303e-02  1.97000000e+02]
+11   29 [ 5.88187736e+00  1.27988461e+00 -1.07026661e-01  2.04000000e+02]
+12   30 [ 5.87879684e+00  1.28778996e+00 -1.07079106e-01  2.05000000e+02]
+13   31 [ 5.87573839e+00  1.29565784e+00 -1.07117634e-01  2.06000000e+02]
+14   32 [ 5.87242259e+00  1.30345594e+00 -1.07069783e-01  2.07000000e+02]
+15   33 [ 5.86872288e+00  1.31116808e+00 -1.06918115e-01  2.08000000e+02]
+16   34 [ 5.87982920e+00  1.27908053e+00 -1.15251937e-01  2.15000000e+02]
+create_charuco_corners:  24 x 12
+square_length:  9.9
+marker_length:  7.4
+charuco board size =  24 x 12
+we split it into =  3 x 2
+split charuco board size =  8 x 6
+----------------------------charuco match----------------------------
+split_charuco_board  1_2 :
+optimizing...
+`xtol` termination condition is satisfied.
+Function evaluations 34982, initial cost 1.0416e+02, final cost 1.0064e-01, first-order optimality 6.54e-01.
+opted scale =  11.612312363042602
+board id = 1_2, mean error(unit:m) = 0.007028390724705964, point number = 35
+
+board id = 1_2, mean error(unit:m) = 0.0026270844063688457, point number = 35
+
+board id = 1_2, mean error(unit:m) = 0.003163161024009562, point number = 35
+
+opted scale = 11.612312363042602
+
+Jump  custom.create_gravity_list
+Jump  colmap.gravity
+Jump  colmap.makegeo

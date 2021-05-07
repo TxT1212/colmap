@@ -1,0 +1,62 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/data/largescene/shunyu/videos/",
+  "video_frame_path": "/data/largescene/shunyu/images",
+  "model_proj_path": "/data/largescene/shunyu/",
+  "model_proj_image_path": "/data/largescene/shunyu/images",
+  "colmap_voc_file": "/home/netease/ARWorkspace/colmap_ezxr/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "SIMPLE_RADIAL",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+Jump  colmap.base_reconstruction
+Jump  copy.charucoimage
+Jump  copy.db
+Jump  custom.charuco_match_list
+Jump  colmap.charuco_registration
+Jump  custom.charuco_detect
+Jump  custom.create_gravity_list
+Jump  colmap.gravity
+Jump  colmap.makegeo
+check params, commands and status, Press to continue...
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+-----------command note-----------
+extract_image_from_video.py  /data/largescene/shunyu/videos/   /data/largescene/shunyu/images   True   15   -1   False   False   1280   720
+----------------------------------
+Open New Thread, Valid_thread =  4Jump  /data/largescene/shunyu/images/base/VID_20210223_114727
+
+Jump  /data/largescene/shunyu/images/base/VID_20210223_114518
+Jump  /data/largescene/shunyu/images/base/VID_20210223_114859
+Jump  /data/largescene/shunyu/images/base/VID_20210223_114619
+Open New Thread, Valid_thread =  3
+start video2image  /data/largescene/shunyu/videos/base/VID_20210223_182312.mp4 , frames =  1631.0
+start video2image  /data/largescene/shunyu/videos/base/VID_20210223_182233.mp4 , frames =  874.0
+finish video2image  /data/largescene/shunyu/videos/base/VID_20210223_182233.mp4
+Valid_thread =  4
+finished / total = 5  /  6
+finish video2image  /data/largescene/shunyu/videos/base/VID_20210223_182312.mp4
+Valid_thread =  5
+finished / total = 6  /  6
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+Jump  colmap.base_reconstruction
+Jump  copy.charucoimage
+Jump  copy.db
+Jump  custom.charuco_match_list
+Jump  colmap.charuco_registration
+Jump  custom.charuco_detect
+Jump  custom.create_gravity_list
+Jump  colmap.gravity
+Jump  colmap.makegeo

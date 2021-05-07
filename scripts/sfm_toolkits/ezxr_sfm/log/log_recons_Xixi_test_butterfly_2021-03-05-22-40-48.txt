@@ -1,0 +1,40 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/data/largescene/guobo/videos_select",
+  "video_frame_path": "/data/largescene/guobo/frames_select",
+  "model_proj_path": "/media/mm/RichMan/hzgb/videos_insta_f4",
+  "model_proj_image_path": "/media/netease/Storage/LargeScene/Scene/XixiWetland/colmap_model/test_butterfly/images",
+  "colmap_voc_file": "/home/netease/ARWorkspace/colmap_ezxr/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/netease/ARWorkspace/colmap_ezxr/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+-----------command note-----------
+extract_image_from_video.py  /data/largescene/guobo/videos_select   /data/largescene/guobo/frames_select   True   30   -1   False   False   1280   720
+----------------------------------
+Open New Thread, Valid_thread =  4
+Open New Thread, Valid_thread =  3
+Open New Thread, Valid_thread =  2
+start video2image  /data/largescene/guobo/videos_select/hzgb_f4_f3_f2_link.insv , frames =  5250.0
+start video2image  /data/largescene/guobo/videos_select/hzgb_f2_outin_r1_102.insv , frames =  1257.0
+start video2image  /data/largescene/guobo/videos_select/hzgb_f2_outin_r1_101.insv , frames =  925.0
+finish video2image  /data/largescene/guobo/videos_select/hzgb_f2_outin_r1_101.insv
+Valid_thread =  3
+finished / total = 1  /  3
+finish video2image  /data/largescene/guobo/videos_select/hzgb_f2_outin_r1_102.insv
+Valid_thread =  4
+finished / total = 2  /  3
+finish video2image  /data/largescene/guobo/videos_select/hzgb_f4_f3_f2_link.insv
+Valid_thread =  5
+finished / total = 3  /  3

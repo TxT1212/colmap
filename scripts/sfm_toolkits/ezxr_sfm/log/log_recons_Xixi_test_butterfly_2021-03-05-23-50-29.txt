@@ -1,0 +1,60 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/data/largescene/guobo/videos_select",
+  "video_frame_path": "/data/largescene/guobo/frames_select",
+  "model_proj_path": "/media/mm/RichMan/hzgb/videos_insta_f4",
+  "model_proj_image_path": "/media/netease/Storage/LargeScene/Scene/XixiWetland/colmap_model/test_butterfly/images",
+  "colmap_voc_file": "/home/netease/ARWorkspace/colmap_ezxr/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/netease/ARWorkspace/colmap_ezxr/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+-----------command note-----------
+extract_image_from_video.py  /data/largescene/guobo/videos_select   /data/largescene/guobo/frames_select   True   15   -1   False   False   1280   720
+----------------------------------
+Open New Thread, Valid_thread =  4
+Open New Thread, Valid_thread =  3
+Open New Thread, Valid_thread =  2
+Open New Thread, Valid_thread =  1
+Open New Thread, Valid_thread =  0
+start video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f2_out_r3_101.insv , frames =  487.0
+start video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f2_out_r3_103.insv , frames =  441.0
+start video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f3_r3_003.insv , frames =  754.0
+start video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f4_r3_002.insv , frames =  687.0
+start video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f4_r3_001.insv , frames =  728.0
+finish video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f2_out_r3_101.insv
+Valid_thread =  1
+finished / total = 1  /  7
+Open New Thread, Valid_thread =  0
+finish video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f2_out_r3_103.insv
+Valid_thread =  1
+finished / total = 2  /  7
+start video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f3_r3_001.insv , frames =  891.0
+Open New Thread, Valid_thread =  0
+start video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f2_out_r3_102.insv , frames =  377.0
+finish video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f4_r3_002.insv
+Valid_thread =  1
+finished / total = 3  /  7
+finish video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f4_r3_001.insv
+Valid_thread =  2
+finished / total = 4  /  7
+finish video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f3_r3_003.insv
+Valid_thread =  3
+finished / total = 5  /  7
+finish video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f2_out_r3_102.insv
+Valid_thread =  4
+finished / total = 6  /  7
+finish video2image  /data/largescene/guobo/videos_select/charuco/hzgb_f3_r3_001.insv
+Valid_thread =  5
+finished / total = 7  /  7

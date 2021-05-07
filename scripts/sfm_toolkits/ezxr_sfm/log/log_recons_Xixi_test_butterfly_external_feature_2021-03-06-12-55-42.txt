@@ -1,0 +1,124 @@
+{
+  "colmap_app_path": "colmap",
+  "model_proj_path": "/data/largescene/guobo/",
+  "model_proj_image_path": "/data/largescene/guobo/images",
+  "scene_proj_path": "/data/largescene/guobo//Scene_guobo_navdemo/dlreloc",
+  "hfnet_proj_path": "/home/mm/ARWorkspace/AREngine2/src/dlfeatures",
+  "image_ext": ".png"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "OPENCV_FISHEYE",
+  "loc": "SIMPLE_RADIAL"
+}
+Jump  external.hfnet_extractor
+==================================
+ external.hfnet_matcher 
+ hfnet特征匹配，外部python命令 
+==================================
+==================================
+ colmap.hfnet_database 
+ 新建db，导入自定义特征 
+==================================
+==================================
+ custom.model_reorder 
+ 根据database中的图像顺序，筛选并重排model中的图像序号 
+==================================
+==================================
+ colmap.hfnet_model 
+ 制作给定特征的定位地图 
+==================================
+==================================
+ copy.scene_net 
+ copy scene_net 
+==================================
+==================================
+ copy.scene_features 
+ copy scene_feature 
+==================================
+==================================
+ copy.scene_colmap_model 
+ copy scene_colmap_model 
+==================================
+Jump  copy.scene_images
+Jump  external.hfnet_extractor
+==================================
+ external.hfnet_matcher 
+ hfnet特征匹配，外部python命令 
+==================================
+python3 /home/mm/ARWorkspace/AREngine2/src/dlfeatures/tools/match_features_with_db_prior.py --database_file /data/largescene/guobo//loc.db --feature_ext .npz --image_dir /data/largescene/guobo/images --feature_dir /data/largescene/guobo//features/hfnet/npz --match_list_path /data/largescene/guobo//features/hfnet/match_file.txt --use_ratio_test --ratio_test_values 0.8
+==================================
+ colmap.hfnet_database 
+ 新建db，导入自定义特征 
+==================================
+{
+  "note": "\u65b0\u5efadb\uff0c\u5bfc\u5165\u81ea\u5b9a\u4e49\u7279\u5f81",
+  "database": "/data/largescene/guobo//loc_hfnet.db",
+  "image_path": "/data/largescene/guobo/images",
+  "feature_path": "/data/largescene/guobo//features/hfnet",
+  "output_model": "/data/largescene/guobo//sparse/hfnet_empty",
+  "colmap": {
+    "database_creator": {
+      "database_path": "/data/largescene/guobo//loc_hfnet.db"
+    },
+    "feature_importer": {
+      "database_path": "/data/largescene/guobo//loc_hfnet.db",
+      "ImageReader.single_camera_per_folder": 1,
+      "image_path": "/data/largescene/guobo/images",
+      "import_path": "/data/largescene/guobo//features/hfnet/txt"
+    }
+  }
+}
+Missing input_model.
+
+colmap database_creator --database_path /data/largescene/guobo//loc_hfnet.db
+colmap feature_importer --database_path /data/largescene/guobo//loc_hfnet.db --ImageReader.single_camera_per_folder 1 --image_path /data/largescene/guobo/images --import_path /data/largescene/guobo//features/hfnet/txt
+==================================
+ custom.model_reorder 
+ 根据database中的图像顺序，筛选并重排model中的图像序号 
+==================================
+set_camera {(21, 25), (25, 29), (18, 22), (20, 24), (24, 28), (22, 26), (23, 27), (19, 23)}
+==================================
+ colmap.hfnet_model 
+ 制作给定特征的定位地图 
+==================================
+{
+  "note": "\u5236\u4f5c\u7ed9\u5b9a\u7279\u5f81\u7684\u5b9a\u4f4d\u5730\u56fe",
+  "database": "/data/largescene/guobo//loc_hfnet.db",
+  "image_path": "/data/largescene/guobo/images",
+  "input_model": "/data/largescene/guobo//sparse/hfnet_empty",
+  "output_model": "/data/largescene/guobo//sparse/hfnet_loc",
+  "feature_path": "/data/largescene/guobo//features/hfnet",
+  "match_file": "/data/largescene/guobo//features/hfnet/match_file.txt",
+  "colmap": {
+    "matches_importer": {
+      "database_path": "/data/largescene/guobo//loc_hfnet.db",
+      "match_list_path": "/data/largescene/guobo//features/hfnet/match_file.txt",
+      "match_type": "raw"
+    },
+    "point_triangulator": {
+      "database_path": "/data/largescene/guobo//loc_hfnet.db",
+      "image_path": "/data/largescene/guobo/images",
+      "input_path": "/data/largescene/guobo//sparse/hfnet_empty",
+      "output_path": "/data/largescene/guobo//sparse/hfnet_loc"
+    }
+  }
+}
+colmap matches_importer --database_path /data/largescene/guobo//loc_hfnet.db --match_list_path /data/largescene/guobo//features/hfnet/match_file.txt --match_type raw
+colmap point_triangulator --database_path /data/largescene/guobo//loc_hfnet.db --image_path /data/largescene/guobo/images --input_path /data/largescene/guobo//sparse/hfnet_empty --output_path /data/largescene/guobo//sparse/hfnet_loc
+==================================
+ copy.scene_net 
+ copy scene_net 
+==================================
+copy from  /home/mm/ARWorkspace/AREngine2/src/dlfeatures/native/  to  /data/largescene/guobo//Scene_guobo_navdemo/dlreloc/net_model/
+==================================
+ copy.scene_features 
+ copy scene_feature 
+==================================
+copy from  /data/largescene/guobo//features/hfnet/bin  to  /data/largescene/guobo//Scene_guobo_navdemo/dlreloc/features/
+==================================
+ copy.scene_colmap_model 
+ copy scene_colmap_model 
+==================================
+copy from  /data/largescene/guobo//sparse/hfnet_loc  to  /data/largescene/guobo//Scene_guobo_navdemo/dlreloc/colmap_model/
+Jump  copy.scene_images

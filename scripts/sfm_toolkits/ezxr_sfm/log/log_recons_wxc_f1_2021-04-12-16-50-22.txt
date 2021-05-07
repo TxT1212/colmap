@@ -1,0 +1,48 @@
+{
+  "colmap_app_path": "colmap",
+  "model_proj_path": "/data/largescene/ezxrsales/",
+  "model_proj_image_path": "/data/largescene/ezxrsales/images"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "OPENCV_FISHEYE",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ colmap.dense_reconstruction 
+ dense_reconstruction 
+==================================
+==================================
+ colmap.dense_reconstruction 
+ dense_reconstruction 
+==================================
+{
+  "note": "dense_reconstruction",
+  "database": "/data/largescene/ezxrsales//database/None.db",
+  "image_path": "/data/largescene/ezxrsales/images",
+  "dense_path": "/data/largescene/ezxrsales//dense/migutest/",
+  "input_model": "/data/largescene/ezxrsales//sparse/migutest_CharucoDeleted/0",
+  "output_model": "/data/largescene/ezxrsales//dense/migutest/ply",
+  "colmap": {
+    "image_undistorter": {
+      "image_path": "/data/largescene/ezxrsales/images",
+      "input_path": "/data/largescene/ezxrsales//sparse/migutest_CharucoDeleted/0",
+      "output_path": "/data/largescene/ezxrsales//dense/migutest/",
+      "max_image_size": 2000
+    },
+    "patch_match_stereo": {
+      "workspace_path": "/data/largescene/ezxrsales//dense/migutest/",
+      "PatchMatchStereo.window_radius": 5,
+      "PatchMatchStereo.min_triangulation_angle": 1,
+      "PatchMatchStereo.max_image_size": 2000
+    },
+    "stereo_fusion": {
+      "workspace_path": "/data/largescene/ezxrsales//dense/migutest/",
+      "StereoFusion.min_num_pixels": 5,
+      "output_path": "/data/largescene/ezxrsales//dense/migutest/ply/model.ply"
+    }
+  }
+}
+colmap image_undistorter --image_path /data/largescene/ezxrsales/images --input_path /data/largescene/ezxrsales//sparse/migutest_CharucoDeleted/0 --output_path /data/largescene/ezxrsales//dense/migutest/ --max_image_size 2000
+colmap patch_match_stereo --workspace_path /data/largescene/ezxrsales//dense/migutest/ --PatchMatchStereo.window_radius 5 --PatchMatchStereo.min_triangulation_angle 1 --PatchMatchStereo.max_image_size 2000
+colmap stereo_fusion --workspace_path /data/largescene/ezxrsales//dense/migutest/ --StereoFusion.min_num_pixels 5 --output_path /data/largescene/ezxrsales//dense/migutest/ply/model.ply

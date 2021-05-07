@@ -1,0 +1,43 @@
+{
+  "colmap_app_path": "colmap",
+  "model_proj_path": "/data/largescene/xiyou/scenedyj/",
+  "model_proj_image_path": "/data/largescene/xiyou/scenedyj/images",
+  "scene_proj_path": "/data/largescene/xiyou/scenedyj/Scene_nansong_dyj/",
+  "hfnet_proj_path": "/home/mm/ARWorkspace/AREngine2/src/dlfeatures/",
+  "image_ext": ".jpg",
+  "matcher_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/colmap_process/match_features_with_db_prior.py",
+  "locmap_folder": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/data/locmap_config/locmap_ver20210315"
+}
+{
+  "base": "SIMPLE_RADIAL",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ external.hfnet_extractor 
+ hfnet特征提取，外部python命令 
+==================================
+Jump  external.hfnet_matcher
+Jump  colmap.hfnet_database
+Jump  custom.model_reorder
+Jump  colmap.hfnet_model
+Jump  copy.scene_folder
+Jump  copy.scene_net
+Jump  copy.scene_features
+Jump  copy.scene_colmap_model
+Can't find command  copy.scene_images  in run list
+==================================
+ external.hfnet_extractor 
+ hfnet特征提取，外部python命令 
+==================================
+python3 /home/mm/ARWorkspace/AREngine2/src/dlfeatures//tools/extract_features.py --jonson_tag hfnet --dlfeatures_type hfnet --dlfeatures_assets_path /home/mm/ARWorkspace/AREngine2/src/dlfeatures//native/assets_hfnet --image_path /data/largescene/xiyou/scenedyj/images --image_ext .jpg --model_path /data/largescene/xiyou/scenedyj//sparse/diyijing/geo_210316 --feature_path /data/largescene/xiyou/scenedyj//features/hfnet --image_subfolder_nums 5 --image_subfolders_list_file /data/largescene/xiyou/scenedyj//tasks/loclist.txt
+Jump  external.hfnet_matcher
+Jump  colmap.hfnet_database
+Jump  custom.model_reorder
+Jump  colmap.hfnet_model
+Jump  copy.scene_folder
+Jump  copy.scene_net
+Jump  copy.scene_features
+Jump  copy.scene_colmap_model
+Can't find command  copy.scene_images  in run list
+Press to continue, and jump it

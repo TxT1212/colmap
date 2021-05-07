@@ -1,0 +1,68 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/data/largescene/Chaoyangstreet/videos",
+  "video_frame_path": "/data/largescene/Chaoyangstreet/tmp",
+  "model_proj_path": "/data/largescene/Chaoyangstreet",
+  "model_proj_image_path": "/data/largescene/Chaoyangstreet/images",
+  "colmap_voc_file": "/home/netease/ARWorkspace/colmap_ezxr/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "~/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "SIMPLE_RADIAL",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+Jump  custom.create_recons_proj
+Jump  copy.base_image
+******Check Below Result****** colmap.base_reconstruction
+==================================
+ colmap.base_reconstruction 
+ reconstruct with base frames 骨架地图 
+==================================
+******Check Below Result****** copy.charucoimage
+==================================
+ copy.charucoimage 
+ copy charuco images to colmap_proj_path 
+==================================
+==================================
+ copy.db 
+ copy db to charuco.db 
+==================================
+==================================
+ custom.charuco_match_list 
+ generate charuco match list, match charuco folders only with base images 
+==================================
+******Check Below Result****** colmap.charuco_registration
+==================================
+ colmap.charuco_registration 
+ register charuco images 标定板图像注册 
+==================================
+******Check Below Result****** custom.charuco_detect
+==================================
+ custom.charuco_detect 
+ charuco_detect 标定板检测 
+==================================
+Jump  custom.create_gravity_list
+==================================
+ colmap.gravity 
+ 仅用base/gravity生成model，align to gravity(run export geo to get gravityz) 
+==================================
+==================================
+ colmap.makegeo 
+ produce geo model with only base images(for dense reconstruction) 
+==================================
+check params, commands and status, Press to continue...
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+-----------command note-----------
+extract_image_from_video.py  /data/largescene/Chaoyangstreet/videos   /data/largescene/Chaoyangstreet/tmp   False   60   -1   False   False   1280   720
+----------------------------------
+Open New Thread, Valid_thread =  4
+start video2image  /data/largescene/Chaoyangstreet/videos/cystreet_street_20210203_putao_r1_0027.mp4 , frames =  0.0
+finish video2image  /data/largescene/Chaoyangstreet/videos/cystreet_street_20210203_putao_r1_0027.mp4

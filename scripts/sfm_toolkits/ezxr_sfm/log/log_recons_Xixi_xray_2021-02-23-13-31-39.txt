@@ -1,0 +1,41 @@
+{
+  "colmap_app_path": "colmap",
+  "model_proj_path": "/data/largescene/AoMenAir/",
+  "model_proj_image_path": "/data/largescene/AoMenAir/images_aomenair"
+}
+{
+  "base": "SIMPLE_RADIAL",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ colmap.dense_reconstruction 
+ dense_reconstruction 
+==================================
+check params, commands and status, Press to continue...
+==================================
+ colmap.dense_reconstruction 
+ dense_reconstruction 
+==================================
+{
+  "note": "dense_reconstruction",
+  "database": "/data/largescene/AoMenAir//aomenair.db",
+  "image_path": "/data/largescene/AoMenAir/images_aomenair",
+  "dense_path": "/data/largescene/AoMenAir//dense2/",
+  "input_model": "/data/largescene/AoMenAir//sparse/dsb_air_ground_utm",
+  "output_model": "/data/largescene/AoMenAir//dense2/ply",
+  "colmap": {
+    "patch_match_stereo": {
+      "workspace_path": "/data/largescene/AoMenAir//dense2/",
+      "PatchMatchStereo.window_radius": 5,
+      "PatchMatchStereo.min_triangulation_angle": 7
+    },
+    "stereo_fusion": {
+      "workspace_path": "/data/largescene/AoMenAir//dense2/",
+      "StereoFusion.min_num_pixels": 7,
+      "output_path": "/data/largescene/AoMenAir//dense2/ply/aomenairground_500_ang7_pix7.ply"
+    }
+  }
+}
+colmap patch_match_stereo --workspace_path /data/largescene/AoMenAir//dense2/ --PatchMatchStereo.window_radius 5 --PatchMatchStereo.min_triangulation_angle 7
+colmap stereo_fusion --workspace_path /data/largescene/AoMenAir//dense2/ --StereoFusion.min_num_pixels 7 --output_path /data/largescene/AoMenAir//dense2/ply/aomenairground_500_ang7_pix7.ply

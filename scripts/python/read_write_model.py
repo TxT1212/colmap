@@ -35,6 +35,7 @@ import collections
 import numpy as np
 import struct
 import argparse
+from scipy.spatial.transform import Rotation as R
 
 
 CameraModel = collections.namedtuple(
@@ -103,7 +104,7 @@ def read_cameras_text(path):
     """
     see: src/base/reconstruction.cc
         void Reconstruction::WriteCamerasText(const std::string& path)
-        void Reconstruction::ReadCamerasText(const std::string& path)
+        void Reconstruction::ReadCacamerasmerasText(const std::string& path)
     """
     cameras = {}
     with open(path, "r") as fid:
@@ -256,6 +257,114 @@ def read_images_binary(path_to_model_file):
                 xys=xys, point3D_ids=point3D_ids)
     return images
 
+def read_model_aachen(path_to_model_file, path_to_pose_file):
+    cameras = {}
+    images = {}
+    points3D = {}
+
+    
+    format_char_sequence_desc = "B" * 128
+    with open(path_to_model_file, "rb") as fid:
+        num_cameras = read_next_bytes(fid, 4, "i")[0]
+        images_points_counter = np.zeros(num_cameras, int)
+        images_points_dictionary = []
+        images_points_3d = []
+        for camera_id in range(num_cameras):
+            images_points_dictionary.append([])
+            images_points_3d.append([])
+            camera_properties = read_next_bytes(fid, num_bytes=128, format_char_sequence="dddIIdddddddddddd")
+            f = camera_properties[0]
+            k1 = camera_properties[1]
+            k2 = camera_properties[2]
+            width = camera_properties[3]
+            height = camera_properties[4]
+            rvec = np.array(camera_properties[5:14]).reshape([3,-1])
+            # rvec[0][1] *= -1
+            # rvec[0][2] *= -1
+            # rvec[1][0] *= -1
+            # rvec[2][0] *= -1            
+            rvec[1][1] *= -1
+            rvec[1][2] *= -1
+            rvec[1][0] *= -1
+            rvec[2][0] *= -1            
+            rvec[2][1] *= -1
+            rvec[2][2] *= -1
+            qvec = rotmat2qvec(rvec)
+            tvec = np.array(camera_properties[14:17])
+            tvec[1] *= -1.0
+            tvec[2] *= -1.0
+            # tvec = -1 * rvec.dot(tvec)
+            print(tvec)
+            # print(rvec)
+            params = [f, width/2, height/2, k1]
+            # print(params) 
+            # print(k2)
+            model_name = "SIMPLE_RADIAL"
+            cameras[camera_id] = Camera(id=camera_id,
+                                        model=model_name,
+                                        width=width,
+                                        height=height,
+                                        params=np.array(params))
+            xys = np.column_stack([tuple(),tuple()])
+            point3D_ids = np.array(tuple())
+            images[camera_id] = Image(
+                id=camera_id, qvec=qvec, tvec=tvec,
+                camera_id=camera_id, name="image_name",
+                xys=xys, point3D_ids=point3D_ids) 
+
+        num_points = read_next_bytes(fid, 4, "i")[0]
+        for point3D_id in range(num_points):
+            binary_point_line_properties = read_next_bytes(fid, num_bytes=16, format_char_sequence="fffI")
+            xyz = np.array(binary_point_line_properties[0:3])
+            # xyz[1] *= -1
+            # xyz[2] *= -1
+            rgb = np.zeros(3, int)
+            error = 0
+            size_view_list = binary_point_line_properties[3]
+            image_ids = []
+            # xys = []
+            point2D_idxs = []
+
+            for view_id in range(size_view_list):
+                view_properties = read_next_bytes(fid, num_bytes=148, format_char_sequence="Iffff"+format_char_sequence_desc)
+                image_id = view_properties[0]
+                image_ids.append(image_id)
+                point2D_idxs.append(images_points_counter[image_id])
+                images_points_counter[image_id] += 1
+                xy = np.array(view_properties[1:3])
+                # xys.append(xy)
+                images_points_dictionary[image_id].append(xy)
+                images_points_3d[image_id].append(point3D_id)
+                # scale = view_properties[3]
+                # orientation = view_properties[4]
+                # desc = np.array(view_properties[4:132])
+            points3D[point3D_id] = Point3D(id=point3D_id, xyz=xyz, rgb=rgb, error=error, image_ids=np.array(image_ids), point2D_idxs=np.array(point2D_idxs))
+        for images_id in range(num_cameras):
+            images[images_id] = images[images_id]._replace(xys = np.stack( images_points_dictionary[images_id], axis=0 ))
+            images[images_id] = images[images_id]._replace(point3D_ids = np.array( images_points_3d[images_id]))
+    
+    with open(path_to_pose_file, "r") as fid:
+        line = fid.readline()
+        num_poses = int(line)
+            
+        for images_id in range(num_poses):
+            line = fid.readline()
+            line = line.strip()
+            print(line)
+            if len(line) > 0 and line[0] != "#":
+                elems = line.split()
+                image_name = elems[0]
+                print(image_name)
+                # tvec = np.array(tuple(map(float, elems[6:9])))
+                # qvec = np.array(tuple(map(float, elems[2:6])))
+                # rvec = qvec2rotmat(qvec)
+                # print(rvec.dot(tvec))
+                # # temp = tvec[1]
+                # # tvec[1] = tvec[2]
+                # # tvec[2] = temp
+                # images[images_id] = images[images_id]._replace(tvec = rvec.dot(tvec))
+                images[images_id] = images[images_id]._replace(name = image_name)
+    return cameras, images, points3D
 
 def write_images_text(images, path):
     """
@@ -461,7 +570,7 @@ def qvec2rotmat(qvec):
          2 * qvec[2] * qvec[3] - 2 * qvec[0] * qvec[1]],
         [2 * qvec[3] * qvec[1] - 2 * qvec[0] * qvec[2],
          2 * qvec[2] * qvec[3] + 2 * qvec[0] * qvec[1],
-         1 - 2 * qvec[1]**2 - 2 * qvec[2]**2]])
+         1 - 2 * qvec[1]**2 - 2 * qvec[2]**2]]) 
 
 
 def rotmat2qvec(R):
@@ -481,6 +590,7 @@ def rotmat2qvec(R):
 def main():
     parser = argparse.ArgumentParser(description="Read and write COLMAP binary and text models")
     parser.add_argument("--input_model", help="path to input model folder")
+    parser.add_argument("--input_nvm", help="path to input nvm folder")
     parser.add_argument("--input_format", choices=[".bin", ".txt"],
                         help="input model format", default="")
     parser.add_argument("--output_model",
@@ -489,7 +599,18 @@ def main():
                         help="outut model format", default=".txt")
     args = parser.parse_args()
 
-    cameras, images, points3D = read_model(path=args.input_model, ext=args.input_format)
+    parser.add_argument("--input_model", help="path to input model folder")
+    parser.add_argument("--input_nvm", help="path to input nvm folder")
+    parser.add_argument("--input_format", choices=[".bin", ".txt"],
+                        help="input model format", default="")
+    parser.add_argument("--output_model",
+                        help="path to output model folder")
+    parser.add_argument("--output_format", choices=[".bin", ".txt"],
+                        help="outut model format", default=".txt")
+    args = parser.parse_args()
+
+    # cameras, images, points3D = read_model(path=args.input_model, ext=args.input_format)
+    cameras, images, points3D = read_model_aachen(path_to_model_file=args.input_model, path_to_pose_file=args.input_nvm)
 
     print("num_cameras:", len(cameras))
     print("num_images:", len(images))

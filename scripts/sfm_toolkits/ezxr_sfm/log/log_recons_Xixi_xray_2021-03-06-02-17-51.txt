@@ -1,0 +1,29 @@
+{
+  "colmap_app_path": "colmap",
+  "video_frame_path": "/media/mm/RichMan/hzgb/images_back",
+  "model_proj_path": "/media/mm/RichMan/hzgb/",
+  "model_proj_image_path": "/media/mm/RichMan/hzgb/images",
+  "colmap_voc_file": "/home/mm/ARWorkspace/colmap/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/mm/ARWorkspace/colmap/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "OPENCV_FISHEYE",
+  "charuco": "OPENCV_FISHEYE",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ copy.loc_image 
+ copy base images to colmap_proj_path 
+==================================
+==================================
+ copy.locdb 
+ copy database to loc.db 
+==================================
+==================================
+ custom.rmcharuco 
+ remove charuco images 
+==================================
+==================================
+ colmap.image_reg 
+ registration loc images 
+==================================

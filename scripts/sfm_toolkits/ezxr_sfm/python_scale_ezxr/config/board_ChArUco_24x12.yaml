@@ -1,0 +1,7 @@
+%YAML:1.0
+
+Board.rows: 24
+Board.cols: 12
+
+Board.square_length: 9.9
+Board.marker_length: 7.4

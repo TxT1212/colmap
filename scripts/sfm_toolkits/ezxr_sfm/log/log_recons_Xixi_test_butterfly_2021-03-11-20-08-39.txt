@@ -1,0 +1,27 @@
+{
+  "colmap_app_path": "colmap",
+  "video_path": "/data/largescene/qj_city_block_a/videos_test",
+  "video_frame_path": "/data/largescene/qj_city_block_a/frames_test",
+  "model_proj_path": "/media/mm/RichMan/hzgb/videos_insta_f4",
+  "model_proj_image_path": "/media/netease/Storage/LargeScene/Scene/XixiWetland/colmap_model/test_butterfly/images",
+  "colmap_voc_file": "/home/netease/ARWorkspace/colmap_ezxr/vocabulary/vocab_tree_flickr100K_words256K.bin",
+  "board_parameters_path": "/home/netease/ARWorkspace/colmap_ezxr/scripts/sfm_toolkits/ezxr_sfm/python_scale_ezxr/config/board_ChArUco_24x12.yaml"
+}
+{
+  "base": "SIMPLE_RADIAL",
+  "charuco": "SIMPLE_RADIAL",
+  "loc": "SIMPLE_RADIAL"
+}
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+==================================
+ custom.rawdata_process 
+ 从视频序列中提取图像帧 
+==================================
+-----------command note-----------
+extract_image_from_video.py  /data/largescene/qj_city_block_a/videos_test   /data/largescene/qj_city_block_a/frames_test   True   30   -1   False   True   1280   720
+----------------------------------
+Open New Thread, Valid_thread =  4
+start video2image  /data/largescene/qj_city_block_a/videos_test/qjCity_blockALocDay_0311_food_r2_002.mp4 , frames =  6305.0
